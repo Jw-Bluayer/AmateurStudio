@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :profiles
 
+  resources :mypage
+
   root 'home#index'
 
   devise_for :users
