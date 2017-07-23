@@ -1,17 +1,28 @@
-<p>
-  <strong>이름:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>거주지:</strong>
-  <%= @user.place %>
-</p>
-
-<p>
-  <strong>자기소개:</strong>
-  <%= @user.introduction %>
-</p>
+<%= form_for @user, url: "/profiles/#{@user.id}", method: 'patch' do |form| %>
 
 
-<%= render 'form', profile: @profile %>
+    <div class="field">
+      <%= form.label :이름 %><br>
+      <%= form.text_field :name %>
+    </div>
+
+  <div class="field">
+    <%= form.label :거주지 %><br>
+    <%= form.text_area :place %>
+  </div>
+  <div class="field">
+    <%= form.label :자기소개 %><br>
+    <%= form.text_area :introduction %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %><br>
+    <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+
+<% end %>

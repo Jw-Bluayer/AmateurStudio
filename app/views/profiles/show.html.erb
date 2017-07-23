@@ -1,30 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>이름:</strong>
-  <%= @user.name %>
-</p>
-
-<p>
-  <strong>거주지:</strong>
-  <%= @user.place %>
-</p>
-
-<p>
-  <strong>자기소개:</strong>
-  <%= @user.introduction %>
-</p>
-<section>
-  <%= form_with(model: @profile, local: true) do |form| %>
+<section class = "gray-box">
 
 
-  <div class="field">
-    <%= form.label :image %><br>
-    <%= form.file_field :image, accept: 'image/png,image/gif,image/jpeg' %>
-  </div>
+  <%= image_tag("#{@user.image.main}") %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-      <% end %>
+
+  <img src = "http://www.racialjusticenetwork.co.uk/wp-content/uploads/2016/12/default-profile-picture.png">
+
+  <p>
+    <strong>이름:</strong>
+    <%= @user.name %>
+  </p>
+
+  <p>
+    <strong>거주지:</strong>
+    <%= @user.place %>
+  </p>
+
+  <p>
+    <strong>자기소개:</strong>
+    <%= @user.introduction %>
+  </p>
+
+  <%= link_to 'Edit', edit_profile_path(@user) %>
+
 </section>

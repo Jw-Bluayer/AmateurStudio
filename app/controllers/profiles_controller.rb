@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [ :edit, :update, :destroy]
+  before_action :set_profile, only: [   :destroy]
 
   # GET /profiles
   # GET /profiles.json
@@ -43,15 +43,11 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
-    respond_to do |format|
-      if @profile.update(profile_params)
-        format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
-        format.json { render :edit, status: :ok, location: @profile }
-      else
-        format.html { render :edit }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
-    end
+    @user = User.find(params[:id])
+    params.require(:user).permit(:name, :place, :introduction, :images)
+    @user.update_attributes(name: params[:user][:name], place: params[:user][:place], introduction: params[:user][:introduction], image: params[:user][:image])
+
+    redirect_to "/profiles/#{@user.id}"
   end
 
   # DELETE /profiles/1
