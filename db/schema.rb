@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170720150718) do
+ActiveRecord::Schema.define(version: 20170723030126) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "recipient_id"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20170720150718) do
     t.index ["recipient_id", "sender_id"], name: "index_conversations_on_recipient_id_and_sender_id", unique: true
     t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
@@ -50,8 +57,8 @@ ActiveRecord::Schema.define(version: 20170720150718) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name", default: "", null: false
-    t.string "place", default: "", null: false
+    t.text "name", default: "", null: false
+    t.text "place", default: "", null: false
     t.text "introduction", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

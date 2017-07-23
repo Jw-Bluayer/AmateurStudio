@@ -28,3 +28,27 @@
   </div>
       <% end %>
 </section>
+
+
+<% for user in @users %>
+  <div class="user">
+    <p>
+      <strong><%= user.email %></strong>
+      <% if user.friend_ids.empty? %>
+        <% if user.inverse_friends.empty? %>
+            <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+        <% end %>
+      <% else %>
+        <%= flash[:error] = "Unable to add friend." %>
+      <% end %>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
+
+<h2>Your Friends</h2>
+<ul>
+  <% for user in @user.friends %>
+  <li><%= user.email %></li>
+  <% end %>
+</ul>
