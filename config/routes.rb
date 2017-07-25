@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
 
+  get 'main/index'
+
   resources :profiles
 
   resources :mypage
 
-  root 'home#index'
+  root 'main#index'
 
   devise_for :users
 

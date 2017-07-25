@@ -13,6 +13,12 @@
  *= require_tree .
  *= require_self
  */
+ 
+ .flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
  @import "bootstrap-sprockets";
  @import "bootstrap";

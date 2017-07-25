@@ -14,9 +14,9 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
 	<!--     Fonts and icons     -->
-	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
 	<!-- CSS Files -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
@@ -25,7 +25,17 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+  <!-- nave bar -->
+
+    <nav class="navbar navbar-inverse">
+     <a href="#"><img src ="../assets/logo.png" width="70px" height="70px"></a>  
+     <a href="/"><img src="../assets/header/로그인off.png" onmouseover="this.src='../assets/header/로그인on.png'" onmouseout="this.src='../assets/header/로그인off.png'"style="width:3%;"></a>
+     <a href="/"><img src="../assets/header/조인off.png" onmouseover="this.src='../assets/header/조인on.png'" onmouseout="this.src='../assets/header/조인off.png'"style="width:3%;"></a>
+     
+    </nav>
   </head>
+  
   <body>
   <nav class="navbar navbar-inverse">
     <div class="container">
@@ -54,5 +64,36 @@
     <div class="container">
       <%= yield %>
     </div>
-  </body>
+    <div class="fixed-action-btn horizontal click-to-toggle" >
+      <a href="#" class="top"><img src ="../assets/위로.png" width="30px" height="40px" align = "right" mergin = > </a>
+    </div>
+
+  <script>
+  <!--위로올라가기-->
+  $( window ).scroll( function() {
+    if ( $( this ).scrollTop() > 200 ) {
+        $( '.top' ).fadeIn();
+    }
+    else {
+        $( '.top' ).fadeOut();
+    }
+    } );
+    
+      $( '.top' ).click( function() {
+        $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+        return false;
+    } );
+  </script>
+
+</body>
+
+<footer>
+   
+ <center>
+    <a href="/"><img src="../assets/footer/서비스소개off.png" onmouseover="this.src='../assets/footer/서비스소개on.png'" onmouseout="this.src='../assets/footer/서비스소개off.png'"></a>
+    <a href="/"><img src="../assets/footer/이용약관off.png" onmouseover="this.src='../assets/footer/이용약관on.png'" onmouseout="this.src='../assets/footer/이용약관off.png'"></a>
+</center>
+  
+</footer>
+
 </html>
