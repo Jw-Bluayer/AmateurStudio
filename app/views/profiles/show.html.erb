@@ -41,6 +41,8 @@
       <% else %>
         <%= flash[:error] = "Unable to add friend." %>
       <% end %>
+
+      <%= link_to "Destroy Friend", friendships_path(:friend_id => user), :method => :delete %>
       <div class="clear"></div>
     </p>
   </div>
