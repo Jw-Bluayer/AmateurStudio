@@ -7,14 +7,37 @@
   <%= csrf_meta_tags %>
 
 <div class="topnav" id="myTopnav">
- <a href="#"><img src ="../assets/logo.png" style = "width:12%; margin-top:10px; margin-left:10px;"></a>  
+ <a href="#"><img src ="../assets/logo.png" style = "width:12%; margin-top:10px; margin-left:10px;"></a>
 <a href="/"><img src="../assets/header/로그인off.png" onmouseover="this.src='../assets/header/로그인on.png'" onmouseout="this.src='../assets/header/로그인off.png'" style="width:3%;"></a>
 <a href="/"><img src="../assets/header/조인off.png" onmouseover="this.src='../assets/header/조인on.png'" onmouseout="this.src='../assets/header/조인off.png'" style="width:3%;"></a>
 </div>
 
 
 <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Chat</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">메인 화면</a></li>
+        </ul>
 
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+              <% if user_signed_in? %>
+              <li class="dropdown">
+                  <a href= "mypage/<%= current_user.id%>" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %></a>
+                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
+              <% else %>
+                  <li><%= link_to "Sign in", new_user_session_path %></li>
+                  <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
 <div class="container">
       <%= yield %>
     </div>
@@ -33,7 +56,7 @@
 	        $( '.top' ).fadeOut();
 	    }
 	} );
-	
+
     $( '.top' ).click( function() {
 	    $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
 	    return false;
@@ -44,11 +67,11 @@
 
 
 <footer>
-   
+
  <center>
     <a href="/"><img src="../assets/footer/서비스소개off.png" onmouseover="this.src='../assets/footer/서비스소개on.png'" onmouseout="this.src='../assets/footer/서비스소개off.png'"></a>
     <a href="/"><img src="../assets/footer/이용약관off.png" onmouseover="this.src='../assets/footer/이용약관on.png'" onmouseout="this.src='../assets/footer/이용약관off.png'"></a>
 </center>
-  
+
 </footer>
 </html>
