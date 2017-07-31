@@ -30,19 +30,19 @@
 </section>
 
 <!-- Add Friend 관련 목록 및 버튼 -->
-<% for user in @users %>
+<% for user in @allUsers %>
   <div class="user">
     <p>
       <strong><%= user.email %></strong>
       <% if user.friend_ids.empty? %>
         <% if user.inverse_friends.empty? %>
-            <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+            <%= link_to "Add Friend", friendships_path %>
         <% end %>
       <% else %>
         <%= flash[:error] = "Unable to add friend." %>
       <% end %>
 
-      <%= link_to "Destroy Friend", friendships_path(:friend_id => user), :method => :delete %>
+      <%= link_to "Destroy Friend", friendships_path %>
       <div class="clear"></div>
     </p>
   </div>
@@ -50,7 +50,7 @@
 
 <h2>Your Friends</h2>
 <ul>
-  <% for user in @user.friends %>
+  <% for user in @users %>
   <li><%= user.email %></li>
   <% end %>
 </ul>

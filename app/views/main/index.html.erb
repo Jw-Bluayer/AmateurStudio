@@ -18,7 +18,7 @@
 <div class="container">
     <center>
     <div class = "flex">
-    <!-- stylesheet.css 내부에 플렉스 가로 정렬 되어 있는 클래스 = "flex" -->    
+    <!-- stylesheet.css 내부에 플렉스 가로 정렬 되어 있는 클래스 = "flex" -->
 
         <div class="col-4 ">
         <img src="../assets/44.jpg" style="width:60%;">
@@ -70,4 +70,18 @@
     </div>
     </div>
     </center>
+</div>
+
+
+
+<div id="users">
+<% for user in @users %>
+  <div class="user">
+    <p>
+      <strong><%= user.name %></strong>
+      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
 </div>
