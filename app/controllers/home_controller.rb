@@ -1,12 +1,15 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!
+    
+     def index
+          
+     end
 
-  def index
-    session[:conversations] ||= []
-
-    @users = User.all.where.not(id: current_user)
-    @friendships = Friendship.all
-    @conversations = Conversation.includes(:recipient, :messages)
-                                 .find(session[:conversations])
-  end
+     
+     def photographer
+     end
+     
+     
+     def model
+     end
+  
 end

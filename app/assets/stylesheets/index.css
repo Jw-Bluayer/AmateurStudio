@@ -1,0 +1,101 @@
+   @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+   @import url(//fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+    @import url(//fonts.googleapis.com/css?family=Alex+Brush);
+ 
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+.menubtn {
+   width: 20%;
+   margin-bottom: 100px;
+   
+}
+
+
+
+.menu{
+    background-color: #f4f1eb;
+    height: 400px;
+    margin-bottom: 90px;
+    margin-top: 0px;
+    
+}
+
+
+ 
+.text {
+        font-family: 'Nanum Brush Script', serif;
+        font-size : 100px;
+    }
+    .drawsvg,svg {width: 70%; }
+    
+    .stroke {stroke: #000; stroke-width: 1px; stroke-dasharray: 0 250;
+        stroke-opacity: 1; fill: none;
+        -webkit-animation: stroke_offset 8s infinite;
+        animation: stroke_offset 8s infinite;
+        -webkit-animation-timing-function: cubic-bezier(.25, .46, .45, .94);
+        animation-timing-function: cubic-bezier(.25, .46, .45, .94)
+    }
+    
+    @-webkit-keyframes stroke_offset {
+        100%, 25% {stroke-dasharray: 0 250; stroke-opacity: 1
+        }
+        50%, 75% {stroke-dasharray: 250 0; stroke-opacity: .75
+        }
+        55%, 70% {stroke-dasharray: 250 0; stroke-opacity: 0
+        }
+    }
+    
+    @keyframes stroke_offset {
+        100%, 25% {stroke-dasharray: 0 250; stroke-opacity: 1
+        }
+        50%, 75% {stroke-dasharray: 250 0; stroke-opacity: .75
+        }
+        55%, 70% {stroke-dasharray: 250 0; stroke-opacity: 0
+        }
+    }
+    
+    .fill { fill: #000; fill-opacity: 0;
+        -webkit-animation: fill_offset 8s infinite;
+        animation: fill_offset 8s infinite;
+        -webkit-animation-timing-function: cubic-bezier(.25, .46, .45, .94);
+        animation-timing-function: cubic-bezier(.25, .46, .45, .94)
+    }
+    
+    @-webkit-keyframes fill_offset {
+        100%, 25%, 35%, 90% {
+            fill-opacity: 0
+        }
+        50%, 70% {
+            fill-opacity: 1
+        }
+    }
+    
+    @keyframes fill_offset {
+        100%, 25%, 35%, 90% {
+            fill-opacity: 0
+        }
+        50%, 70% {
+            fill-opacity: 1
+        }
+    }
+    
+    #button {
+        float: right;
+        margin-right: 100px;
+        width : 30%;
+    }
+    
+    #fade-text { font-family: 'Alex Brush', cursive; font-size: 4em}
+   
+    
+    #t {
+        width:150px;
+        align: center;
+         border-bottom:none;
+    }
