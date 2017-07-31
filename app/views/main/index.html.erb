@@ -1,76 +1,92 @@
-<!-- Main index 페이지 -->
 
-<!-- 대표 사진 -->
 <div class="container">
-<center><h1 id="title"><img src="../assets/44.jpg" style="width:100%"></h1></center>
+<center><img src="../assets/44.jpg" style="width:100%" ></center> 
 </div>
 
-<!-- menu Tab 버튼 -->
 <div class = "menu">
     <center>
-          <a href="/"><img src = "../assets/btn1.png"></a>
-     <a href="/"><img src ="../assets/btn2.png"></a>
+        <!--<br><h2 style ="color : #484848">Who do you want?</h2>-->
+    
+    <div class="drawsvg" >
+    <svg version="1.1" viewBox="0 0 1000 200">
+      <symbol id="fade-text">
+        <text x="50%" y="60%" text-anchor="middle" name="title"> Who do you want? </text>
+      </symbol>
+      
+      <g>
+        <use class="stroke" xlink:href="#fade-text"/>
+        <use class="fill" xlink:href="#fade-text"/>
+      </g>
+    </svg>                  
+</div>    
+    
+    <div class = "menubtn" >
+        <div class = "flex">
+     <a href="/home/photographer"><img src="../assets/index/btn1off.png" onmouseover="this.src='../assets/index/btn1on.png'" onmouseout="this.src='../assets/index/btn1off.png'" style = " margin-bottom: 10px ; margin-right : 40px"></a>
+     <a href="/home/model"><img src="../assets/index/btn2off.png" onmouseover="this.src='../assets/index/btn2on.png'" onmouseout="this.src='../assets/index/btn2off.png'" ></a>
+   </div>
+   </div>
     </center>
-    <br>
 </div>
 
-<!-- 인덱스 사진 모임 -->
+
+
 <div class="container">
     <center>
     <div class = "flex">
-    <!-- stylesheet.css 내부에 플렉스 가로 정렬 되어 있는 클래스 = "flex" -->
-
+        
         <div class="col-4 ">
         <img src="../assets/44.jpg" style="width:60%;">
         <h2  id = "title">내용</h2>
         <p>작가이름</p>
-
+       
         </div>
 
         <div class="col-4">
         <img src="../assets/44.jpg" style="width:60%;" >
         <h2  id = "title" >내용</h2>
         <p>작가이름</p>
-
+       
         </div>
-
+    
         <div class="col-4 ">
         <img src="../assets/44.jpg" style="width:60%;" >
         <h2  id = "title">내용</h2>
         <p>작가이름</p>
-
+       
         </div>
     </div>
-    </div>
+    </div>    
     </center>
-
+    
     <center>
      <div class = "flex">
-
+        
         <div class="col-4 ">
         <img src="../assets/44.jpg" style="width:60%;">
         <h2  id = "title">내용</h2>
         <p>작가이름</p>
-
+       
         </div>
 
         <div class="col-4">
         <img src="../assets/44.jpg" style="width:60%;" >
         <h2  id = "title" >내용</h2>
         <p>작가이름</p>
-
+       
         </div>
-
+    
         <div class="col-4 ">
         <img src="../assets/44.jpg" style="width:60%;" >
         <h2  id = "title">내용</h2>
         <p>작가이름</p>
-
+       
         </div>
     </div>
-    </div>
+    </div>    
     </center>
 </div>
+
 
 
 
