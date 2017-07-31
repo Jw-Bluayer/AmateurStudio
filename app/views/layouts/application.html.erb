@@ -1,98 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Chat</title>
-    <script src="https://ajax.googleapis.com/ajxwax/libs/jquery/1.12.4/jquery.min.js"></script>
+<head>
+  <title>Workspace</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<div class="topnav" id="myTopnav">
+ <a href="#"><img src ="../assets/logo.png" style = "width:12%; margin-top:10px; margin-left:10px;"></a>  
+<a href="/"><img src="../assets/header/로그인off.png" onmouseover="this.src='../assets/header/로그인on.png'" onmouseout="this.src='../assets/header/로그인off.png'" style="width:3%;"></a>
+<a href="/"><img src="../assets/header/조인off.png" onmouseover="this.src='../assets/header/조인on.png'" onmouseout="this.src='../assets/header/조인off.png'" style="width:3%;"></a>
+</div>
 
-    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
-	<!--     Fonts and icons     -->
-  	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
-  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+<body>
 
-	<!-- CSS Files -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="assets/css/material-kit.css" rel="stylesheet"/>
-
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-
-  <!-- nav bar -->
-
-    </nav>
-  </head>
-
-  <body>
-  <nav class="navbar navbar-inverse">
-    <div class="container">
-      <div class="navbar-header">
-          <!-- Logo position -->
-        <a class="navbar-brand" href="/"><img src ="../assets/logo.png" width="70px" height="70px"></a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/">메인 화면</a></li>
-      </ul>
-
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-            <!-- 유저 접속시 현재 접속 이메일 / 접속 하지 않았을 시, 로그인 || 회원가입 -->
-            <% if user_signed_in? %>
-            <li class="dropdown">
-                <a href= "mypage/<%= current_user.id%>" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %></a>
-                <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
-            <% else %>
-                <li><%= link_to "Sign in", new_user_session_path %></li>
-                <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <% end %>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-    <div class="container">
+<div class="container">
       <%= yield %>
     </div>
-
-    <!-- 맨 위로 올라가는 버튼 -->
     <div class="fixed-action-btn horizontal click-to-toggle" >
-      <a href="#" class="top"><img src ="../assets/위로.png" width="30px" height="40px" align = "right" mergin = > </a>
-    </div>
+    <a href="#" class="top"><img src ="../assets/위로.png" width="40px" height="40px" align = "right" style =" margin-bottom  : 10px"> </a>
+ </div>
+</div>
 
-  <!-- 올라가는 기능을 하는 js -->
-  <script>
-  $( window ).scroll( function() {
-    if ( $( this ).scrollTop() > 200 ) {
-        $( '.top' ).fadeIn();
-    }
-    else {
-        $( '.top' ).fadeOut();
-    }
-    } );
-
-      $( '.top' ).click( function() {
-        $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
-        return false;
-    } );
-  </script>
+<script>
+    <!--위로올라가기-->
+    $( window ).scroll( function() {
+	    if ( $( this ).scrollTop() > 200 ) {
+	        $( '.top' ).fadeIn();
+	    }
+	    else {
+	        $( '.top' ).fadeOut();
+	    }
+	} );
+	
+    $( '.top' ).click( function() {
+	    $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
+	    return false;
+	} );
+</script>
 
 </body>
 
-<!-- 서비스 소개 및 이용약관 관련 -->
-<!-- 현재는 메인 페이지로만 가도록 되어 있음 -->
+
 <footer>
+   
  <center>
     <a href="/"><img src="../assets/footer/서비스소개off.png" onmouseover="this.src='../assets/footer/서비스소개on.png'" onmouseout="this.src='../assets/footer/서비스소개off.png'"></a>
     <a href="/"><img src="../assets/footer/이용약관off.png" onmouseover="this.src='../assets/footer/이용약관on.png'" onmouseout="this.src='../assets/footer/이용약관off.png'"></a>
 </center>
+  
 </footer>
-
 </html>
