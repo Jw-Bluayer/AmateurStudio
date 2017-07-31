@@ -5,7 +5,6 @@ class HomeController < ApplicationController
     session[:conversations] ||= []
 
     @users = User.all.where.not(id: current_user)
-    @friendships = Friendship.all
     @conversations = Conversation.includes(:recipient, :messages)
                                  .find(session[:conversations])
   end

@@ -12,7 +12,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @user = User.find(params[:id])
-    @users = User.all
+    @users = current_user.friends
+    @allUsers = User.all
   end
 
   # GET /profiles/new
