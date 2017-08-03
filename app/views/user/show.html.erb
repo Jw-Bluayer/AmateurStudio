@@ -1,0 +1,92 @@
+<section class = "gray-box">
+
+  <% if @user.image.file.nil? %>
+      <%= image_tag("http://www.racialjusticenetwork.co.uk/wp-content/uploads/2016/12/default-profile-picture.png") %>
+  <% else%>
+
+      <%= image_tag("#{@user.image}") %>
+
+  <% end %>
+  <p>
+    <strong>이름:</strong>
+    <%= @user.name %>
+  </p>
+
+  <p>
+    <strong>거주지:</strong>
+    <%= @user.place %>
+  </p>
+
+  <p>
+    <strong>자기소개:</strong>
+    <%= @user.introduction %>
+  </p>
+
+  <%= link_to 'Edit', edit_user_path(@user) %>
+
+</section>
+
+<br>
+
+<%= link_to 'New Post', (@user.present? ?  new_user_post_path(@user) : new_post_path), class: 'btn btn-default' %>
+
+
+<!-- 해당 유저의 포스트들 -->
+<h1>Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User_id</th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @post.each do |post| %>
+      <tr>
+
+        <td><%= post.user_id%></td>
+        <td><%= image_tag("#{post.image}")%></td>
+
+        <td><%= post.title %></td>
+        <td><%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', (@user.present? ? edit_user_post_path(post.user, post) : edit_post_path(post)), class: 'btn btn-default'%></td>
+        <td><%= link_to 'Destroy', (@user.present? ? [post.user, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'%></td>
+      </tr>
+    <% end %>
+
+
+
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<p>Username: <%= @user.name %></p>
+
+
+<h2>Friends</h2>
+<ul>
+  <% for friendship in @a_user.friendships %>
+    <li>
+      <%= friendship.friend.name %>
+      (<%= link_to "remove", friendship, :method => :delete %>)
+    </li>
+  <% end %>
+</ul>
+
+<p><%= link_to "Find Friends", friendships_path %></p>
+
+<h2>Friended by Users</h2>
+<ul>
+  <% for user in @a_user.inverse_friends %>
+    <li><%= user.name %></li>
+  <% end %>
+</ul>
