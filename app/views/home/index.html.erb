@@ -17,7 +17,7 @@
         <use class="stroke" xlink:href="#fade-text"/>
         <use class="fill" xlink:href="#fade-text"/>
       </g>
-    </svg>					
+    </svg>                  
 </div>    
     
     <div class = "menubtn" >
@@ -28,6 +28,14 @@
    </div>
     </center>
 </div>
+
+
+
+<!-- 모든 포스트 불러오기 -->
+
+<%= render '/posts/indexofall', post: @post %>
+
+
 
 
 
@@ -87,3 +95,17 @@
     </center>
 </div>
 
+
+
+
+<div id="users">
+<% for user in @users %>
+  <div class="user">
+    <p>
+      <strong><%= user.name %></strong>
+      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+      <div class="clear"></div>
+    </p>
+  </div>
+<% end %>
+</div>
