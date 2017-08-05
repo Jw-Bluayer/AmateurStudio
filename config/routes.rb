@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+
   get 'user/show'
 
   get 'user/new'
@@ -9,13 +11,13 @@ Rails.application.routes.draw do
   get 'user/update'
 
   resources :posts
-  get 'main/index'
+  get 'home/index'
 
   resources :profiles
 
   resources :mypage
 
-  root 'main#index'
+  root 'home#index'
 
   resources :user
 
