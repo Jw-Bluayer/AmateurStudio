@@ -4,7 +4,7 @@
       <%= image_tag("http://www.racialjusticenetwork.co.uk/wp-content/uploads/2016/12/default-profile-picture.png") %>
   <% else%>
 
-      <%= image_tag("#{@user.image}") %>
+      <%= image_tag("#{@user.image.main}") %>
 
   <% end %>
 
@@ -53,7 +53,7 @@
       <tr>
 
         <td><%= post.user_id%></td>
-        <td><%= image_tag("#{post.image}")%></td>
+        <td><%= image_tag("#{post.image.main}")%></td>
 
         <td><%= post.title %></td>
         <td><%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %></td>
