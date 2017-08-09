@@ -23,9 +23,7 @@ class User < ApplicationRecord
 		pending_friends | requested_friendships
 	end
 
-	def name
-		email.split('@')[0].titleize
-	end
+	
 
   mount_uploader :image, S3Uploader
 

@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     @post = @user.present? ? @user.posts.new(post_params) :Post.new(post_params)
 
     respond_to do |format|
-      if @post.save
+      if @post.save    
         format.html { redirect_to (@user.present? ? [@post.user, @post] : @post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -37,6 +37,19 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+  end
+  def create1
+    @post = @user.present? ? @user.posts.new(post_params) :Post.new(post_params)
+
+    
+      if @post.save
+        redirect_to (@user.present? ? [@post.user, @post] : @post), notice: 'Post was successfully created.' 
+      
+      else
+        render :new 
+      
+      end
+    
   end
 
   # PATCH/PUT /posts/1

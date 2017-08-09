@@ -7,6 +7,11 @@
       <%= image_tag("#{@user.image}") %>
 
   <% end %>
+
+  <p>
+    <strong>직업군:</strong>
+    <%= @user.job %>
+  </p>
   <p>
     <strong>이름:</strong>
     <%= @user.name %>
@@ -67,26 +72,3 @@
 
 
 
-
-
-<p>Username: <%= @user.name %></p>
-
-
-<h2>Friends</h2>
-<ul>
-  <% for friendship in @a_user.friendships %>
-    <li>
-      <%= friendship.friend.name %>
-      (<%= link_to "remove", friendship, :method => :delete %>)
-    </li>
-  <% end %>
-</ul>
-
-<p><%= link_to "Find Friends", friendships_path %></p>
-
-<h2>Friended by Users</h2>
-<ul>
-  <% for user in @a_user.inverse_friends %>
-    <li><%= user.name %></li>
-  <% end %>
-</ul>
