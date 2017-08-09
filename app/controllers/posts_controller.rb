@@ -38,19 +38,7 @@ class PostsController < ApplicationController
       end
     end
   end
-  def create1
-    @post = @user.present? ? @user.posts.new(post_params) :Post.new(post_params)
-
-    
-      if @post.save
-        redirect_to (@user.present? ? [@post.user, @post] : @post), notice: 'Post was successfully created.' 
-      
-      else
-        render :new 
-      
-      end
-    
-  end
+  
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
