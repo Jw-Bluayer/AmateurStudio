@@ -3,6 +3,17 @@ class S3Uploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
+    version :detail do
+    process :resize_to_fit => [600, 10000]
+  end
+  version :main do
+      process :resize_to_fill => [240, 240]
+
+  end
+  version :medium do
+    process :resize_to_fill => [300,300]
+  end
+
 
   # Choose what kind of storage to use for this uploader:
   #storage :file
