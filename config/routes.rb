@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
 
 
-
-  get 'user/show'
-
-  get 'user/new'
-
-  get 'user/edit'
-
-  get 'user/update'
+  get 'home/photographer'
+  get 'home/model'
 
   resources :posts
-  get 'home/index'
+
 
   resources :profiles
 

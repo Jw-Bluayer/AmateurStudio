@@ -21,6 +21,12 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+  <div class="field">
+    <%= f.radio_button :job, "Model"%> 
+    <%= f.label :Model%>
+    <%= f.radio_button :job, "Photographer"%>
+    <%= f.label :Photographer%>
+  </div>
     <div class="field">
       <%= f.label :이름 %><br />
       <%= f.text_field :name %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170803073302) do
+ActiveRecord::Schema.define(version: 20170808024503) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer "recipient_id"
@@ -40,6 +40,11 @@ ActiveRecord::Schema.define(version: 20170803073302) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -56,6 +61,9 @@ ActiveRecord::Schema.define(version: 20170803073302) do
     t.string "name", default: "", null: false
     t.string "place", default: "", null: false
     t.string "introduction", default: "", null: false
+    t.string "job", default: "", null: false
+    t.string "job_model", default: "", null: false
+    t.string "job_photographer", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -66,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170803073302) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
