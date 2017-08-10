@@ -1,20 +1,25 @@
 class FriendshipsController < ApplicationController
 
+
+	def show
+		@users = User.all
+	end
+
 	def create
 	  return false if current_user.friendships.where(friend_id: params[:friend_id]).exists?
 	  @friendship = current_user.friendships.build(friend_id: params[:friend_id])
       if @friendship.save
-    	  flash[:notice] = "Friend requested."
+    	  flash.now[:notice] = "Friend requested."
     	  redirect_to root_url
     	else
-    	  flash[:error] = "Unable to request friendship."
+    	  flash.now[:error] = "Unable to request friendship."
     	  redirect_to root_url
     	end
 	end
 
 	def update
-	@friendship = Friendship.find_by(id: params[:id])
-	@friendship.update(accepted: true)
+	@friendship = Friendship.find_by(friend_id: params[:id])
+	@friendship.update_all(accepted: true)
 	  if @friendship.save
 	    redirect_to root_url, notice: "Successfully confirmed friend!"
 	  else

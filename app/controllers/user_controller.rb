@@ -2,7 +2,6 @@ class UserController < ApplicationController
   def show
     @user = User.find(params[:id])
     @post = @user.present? ? @user.posts.all : Post.all
-    @a_user = current_user
   end
 
   def edit
@@ -16,4 +15,5 @@ class UserController < ApplicationController
 
     redirect_to "/user/#{@user.id}"
   end
+  
 end

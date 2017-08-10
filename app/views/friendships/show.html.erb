@@ -1,0 +1,51 @@
+<h1> This is Friendship show </h1>
+
+</br>
+<h3>Welcome <%= current_user.email %></h3>
+</br>
+<h4>All Users listed:</h4>
+</br>
+<ul class="list-group">
+	<% @users.each do |user| %>
+
+		<% unless user == current_user || user == current_user && user.pending == true %>
+      <li class="list-group-item">
+				<%= user.email %>
+				<%= link_to "Add Friend", friendships_path(friend_id: user), method: :post %>
+      </li>
+		<% end %>
+	<% end %>
+</ul>
+</br>
+<h4>Your awaiting friend requests:</h4>
+</br>
+<ul class="list-group">
+    <% current_user.requested_friendships.each do |request| %>
+    <li class="list-group-item">
+      <%= request.email %>
+      <%= link_to "Accept",  friendship_path(id: request.id), method: "put" %>
+      <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
+    </li>
+  <% end %>
+
+</ul>
+</br>
+<h4>Your sent friend requests:</h4>
+</br>
+<ul class="list-group">
+    <% current_user.pending_friends.each do |request| %>
+    <li class="list-group-item">
+      <%= request.email %>
+      <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+</br>
+<h4> Your friends </h4>
+<ul class="list-group">
+<% current_user.friends.each do |request| %>
+<li class="list-group-item">
+    <%= request.email %>
+</li>
+<% end %>
+</ul>

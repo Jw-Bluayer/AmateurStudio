@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   get 'home/photographer'
   get 'home/model'
   get 'home/index'
+
   resources :posts
-
-
+  
   resources :profiles
 
   resources :mypage
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   devise_for :users ,:path => 'accounts'
   resources :users do
-    resources :posts 
+    resources :posts
   end
 
   resources :friendships
