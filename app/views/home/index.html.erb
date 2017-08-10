@@ -1,31 +1,31 @@
 
 <header>
 
-  
+
     <nav class="navbar navbar-toggleable-md ">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="fa fa-bars text-white"></span>
       </button>
-      
-     
+
+
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          
-          
+
+
           <li class="nav-item">
             <a class="nav-link px-lg-4" href="/home/photographer" lang="en">Photographer</a>
           </li>
-          
-          
+
+
           <li class="nav-item">
             <a class="nav-link px-lg-4" href="/home/model" lang="en">Model</a>
           </li>
-          
-          
+
+
         </ul>
       </div>
     </nav>
-    
+
 </header>
 
 
@@ -40,56 +40,3 @@
 <!-- 모든 포스트 불러오기 -->
 
 <%= render '/posts/indexofall', post: @post %>
-
-
-
-
-<h1>Friends List:</h1>
-
-<h3>Welcome <%= current_user.name %></h3>
-
-<h4>Your friends listed:</h4>
-
-<ul>
-	<% @users.each do |user| %>
-
-		<% unless user == current_user || user == current_user && user.pending == true %>
-      <li>
-				<%= user.name %>
-				<%= link_to "Add Friend", friendships_path(friend_id: user), method: :post %>
-      </li>
-		<% end %>
-	<% end %>
-</ul>
-
-<h4>Your awaiting friend requests:</h4>
-
-<ul>
-    <% current_user.requested_friendships.each do |request| %>
-    <li>
-      <%= request.name %>
-      <%= link_to "Accept",  friendship_path(id: request.id), method: "put" %>
-      <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
-    </li>
-  <% end %>
-
-</ul>
-
-<h4>Your sent friend requests:</h4>
-
-<ul>
-    <% current_user.pending_friends.each do |request| %>
-    <li>
-      <%= request.name %>
-      <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
-    </li>
-  <% end %>
-</ul>
-
-<h4> Your friends </h4>
-<% current_user.friends.each do |request| %>
-<li>
-    <%= request.name %>
-<% end %>
-
-
