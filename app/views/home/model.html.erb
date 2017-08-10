@@ -2,39 +2,60 @@
 
 <header>
 
-  
+
     <nav class="navbar navbar-toggleable-md">
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="fa fa-bars text-white"></span>
       </button>
-      
-     
+
+
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
-          
+
           <li class="nav-item">
             <a class="nav-link px-lg-4" href="/home/photographer" lang="en">Photographer</a>
           </li>
-          
+
           <li class="nav-item active">
             <a class="nav-link px-lg-4" href="#" lang="en">Model<span class="sr-only">(현재 페이지)</span></a>
           </li>
-          
-          
-          
+
+
+
         </ul>
       </div>
     </nav>
-    
+
 </header>
 
 
 <body>
 
+<% if @job.job == "Model" %>
+
+  <div class="posts-wrapper row">
+    <div class="container">
+    <div class="flex">
+
+      <% @posts.each do |post| %>
+      <div class="post" >
+        <div class = "col-4">
+         <div class="image center-block">
+          <%= link_to image_tag ("#{post.image.medium}"), class:'img-responsive' %>
+         </div>
+        </div>
+      </div>
+    <% end %>
+      </div>
+    </div>
+  </div>
+
+<% end %>
+
 <div class = "photographer">
 <center>
   <div class = "flex">
-    
+
     <div class="col-6 ">
       <div class = "textWithBlurredBg">
         <img src = "/assets/44.jpg">
@@ -42,8 +63,8 @@
             <!--<h3>content</h3>-->
       </div>
     </div>
-  
-  
+
+
     <div class="col-6 ">
       <div class = "textWithBlurredBg">
         <img src = "/assets/44.jpg">

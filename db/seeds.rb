@@ -13,7 +13,8 @@ password = 'pass123'
     password_confirmation: password,
     name: "김덕구",
     place: "인천",
-    introduction: "하이~~~"
+    introduction: "하이~~~",
+    job: "Photographer"
   )
 
   User.create(
@@ -22,7 +23,8 @@ password = 'pass123'
     password_confirmation: password,
     name: "김철수",
     place: "경기도",
-    introduction: "우쮸쮸~~~"
+    introduction: "우쮸쮸~~~",
+    job: "Photographer"
   )
 
   User.create(
@@ -31,7 +33,8 @@ password = 'pass123'
     password_confirmation: password,
     name: "한정민",
     place: "분당",
-    introduction: "늬늬~"
+    introduction: "늬늬~",
+    job: "Photographer"
   )
 
   User.create(
@@ -40,7 +43,8 @@ password = 'pass123'
     password_confirmation: password,
     name: "인간미",
     place: "덕소",
-    introduction: "호우!~"
+    introduction: "호우!~",
+    job: "Model"
   )
 
   User.create(
@@ -49,5 +53,6 @@ password = 'pass123'
     password_confirmation: password,
     name: "김밍밍",
     place: "상하이",
-    introduction: "헤에?!~~"
+    introduction: "헤에?!~~",
+    job: "Model"
   )
