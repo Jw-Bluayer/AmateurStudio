@@ -14,130 +14,40 @@
  *= require_self
  */
  
-
-
-.topnav {
-    background-color: #191919;
-    height: 100px;
-    margin: 0px;
-}
-
-.flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ 
 
- ul {
-   padding-left: 0px;
-   list-style: none;
+ .navbar.bg-inverse {
+  background-color: #000 ;
+}
+
+.brand {
+  margin-bottom: 0;
+font-size: 1.3333333rem;
+font-weight: 700;
+line-height: 1;
+letter-spacing: -0.08em;
  }
+ 
+ 
+ 
+ .nav-link {
+   font-size: 0.73rem;
+   font-weight: 700;
+   line-height: 1.82;
+   letter-spacing: 0.14em;
+   text-transform: uppercase;
+ }
+ 
+ .navbar-toggler {
+   border: none;
+ }
+ 
 
- .messages-list {
-  max-height: 200px;
-  overflow-y: auto;
-  overflow-x: hidden;
+.secondnavbar{
+     background-color: #000 ;
+     width: 100%;
+     height: 50px;
+    
 }
-
-
-.message-sent {
-  position: relative;
-  background-color: #D9EDF7;
-  border-color: #BCE8F1;
-  margin: 5px 20px;
-  padding: 10px;
-  float: right;
-}
-
-
-.message-received {
-  background-color: #F1F0F0;
-  border-color: #EEEEEE;
-  margin: 5px 20px;
-  padding: 10px;
-  float: left;
-}
-
-
-body {
-  background-color: #fafafa;
-  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-}
-
-.navbar-brand {
-  a {
-    color: #125688;
-  }
-}
-
-.navbar-default {
-  background-color: #fff;
-  height: 54px;
-  .navbar-nav li a {
-    color: #125688;
-  }
-}
-
-.navbar-container {
-  width: 640px;
-  margin: 0 auto;
-}
-
-.posts-wrapper {
-  padding-top: 40px;
-  margin: 0 auto;
-  max-width: 642px;
-  width: 100%;
-}
-
-.post {
-  background-color: #fff;
-  border-color: #edeeee;
-  border-style: solid;
-  border-radius: 3px;
-  border-width: 1px;
-  margin-bottom: 60px;
-}
-
-.post-head {
-  height: 64px;
-  padding: 14px 20px;
-  color: #125688;
-  font-size: 15px;
-  line-height: 18px;
-  .thumbnail {}
-  .name {
-    display: block;
-  }
-}
-
-.image {
-  border-bottom: 1px solid #eeefef;
-  border-top: 1px solid #eeefef;
-}
-
-.caption {
-  padding: 24px 24px;
-  font-size: 15px;
-  line-height: 18px;
-
-}
-
-.form-wrapper {
-  width: 60%;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 40px;
-  border: 1px solid #eeefef;
-  border-radius: 3px;
-}
-
-.edit-links {
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-

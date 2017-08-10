@@ -1,42 +1,91 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Workspace</title>
+  <title>AmateurStudio</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-<div class="topnav" id="myTopnav">
- <a href="#"><img src ="../assets/logo.png" style = "width:12%; margin-top:10px; margin-left:10px;"></a>
-<a href="/"><img src="../assets/header/로그인off.png" onmouseover="this.src='../assets/header/로그인on.png'" onmouseout="this.src='../assets/header/로그인off.png'" style="width:3%;"></a>
-<a href="/"><img src="../assets/header/조인off.png" onmouseover="this.src='../assets/header/조인on.png'" onmouseout="this.src='../assets/header/조인off.png'" style="width:3%;"></a>
-</div>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+ <link rel="stylesheet" href="css/custom.css">
+</head>
+
+
+
+<!-- Header -->
+  <header class="header">
+    
+    
+
+    
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="fa fa-bars text-white"></span>
+      </button>
+      
+      
+      <h1 class="brand">
+        <a href="/home/index"><img src ="../assets/logo.png" style = "width:60%; margin-top:10px; margin-left:10px;"></a>    
+      </h1>
+      
+      
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav" >
+        <ul class="navbar-nav">
+          
+          
+          
+          <li class="nav-item active">
+            
+           <ul class="nav-link px-lg-4" >
+              <% if user_signed_in? %>
+              <li class="nav-item">
+                
+                
+                  <a href="user/<%= current_user.id%>" ><%= current_user.email %></a>
+                  </li>
+                  
+                  
+              <li class = "nav-item">
+               
+                <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
+              <% else %>
+                  <li class = "nav-item">
+                 
+                  <%= link_to "Sign in", new_user_session_path %></li>
+                   
+                  <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <% end %>
+              
+              </li>
+              
+              <br>
+              
+          
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+    
+    
+             
+          </ul>
+          
+          
+        
+      </div>
+    </nav>
+    
+
+
+  </header>
+  <!-- // Header -->
+  
+
 
 
 <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="/">Chat</a>
-        </div>
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/">메인 화면</a></li>
-        </ul>
-
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-              <% if user_signed_in? %>
-              <li class="dropdown">
-                  <a href= "user/<%= current_user.id%>" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email %></a>
-                  <li><%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %></li>
-              <% else %>
-                  <li><%= link_to "Sign in", new_user_session_path %></li>
-                  <li><%= link_to "Sign up", new_user_registration_path %></li>
-              <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
+   
     
 <div class="container">
       <%= yield %>
