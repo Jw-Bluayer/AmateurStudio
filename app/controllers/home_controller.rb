@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-before_action :authenticate_user!
 
   def index
     @posts = @user.present? ? @user.posts.all : Post.all
@@ -8,8 +7,12 @@ before_action :authenticate_user!
   end
 
   def photographer
+    @posts = @user.present? ? @user.posts.all : Post.all
+    @job = User.where(job: "Photographer").take
   end
 
   def model
+    @posts = @user.present? ? @user.posts.all : Post.all
+    @job = User.where(job: "Model").take
   end
 end

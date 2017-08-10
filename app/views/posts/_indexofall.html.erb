@@ -1,17 +1,31 @@
-
 <div class="posts-wrapper row">
   <div class="container">
   <div class="flex">
-    
+
     <% @posts.each do |post| %>
-    <div class="post" >
-      <div class = "col-4">     
-       <div class="image center-block">
-        <%= link_to image_tag ("#{post.image.medium}"), class:'img-responsive' %>
+
+    <div class="post">
+
+      <div class = "image col-4">
+
+         <div class="image_block" >
+           <%= link_to (image_tag ("#{post.image.medium}")), (@user.present? ? [post.user, post] : post)%>
+
+            <div class = "contents p-3 d-flex flex-column justify-content-end">
+              <h4 class = "name" alrign= center>작가이름</h4>
+              <h5 class = "info"> 작가에 대한설명입니다 </h5>
+              <center>
+               <%= link_to "더보기",post_path(post) %>
+               </center>
+            </div>
+         </div>
+
+
        </div>
       </div>
-    </div>
+
   <% end %>
+
     </div>
   </div>
 </div>
