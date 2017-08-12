@@ -1,4 +1,12 @@
 class ConversationsController < ApplicationController
+
+  def show
+    session[:conversations] ||= []
+    @users = current_user.friends
+    @conversations = Conversation.includes(:recipient, :messages)
+                                   .find(session[:conversations])
+  end
+
   def create
     @conversation = Conversation.get(current_user.id, params[:user_id])
 
