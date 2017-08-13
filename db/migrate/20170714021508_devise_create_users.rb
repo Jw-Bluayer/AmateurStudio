@@ -8,8 +8,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :place,              null: false, default: ""  #추가한거
       t.string :introduction,       null: false, default: "" #추가한거
       t.string :job,                null: false, default: "" #추가한거
-      t.string :job_model,          null: false, default: "" #추가한거
-      t.string :job_photographer,   null: false, default: "" #추가한거
 
       ## Recoverable
       t.string   :reset_password_token

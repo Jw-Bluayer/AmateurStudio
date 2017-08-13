@@ -16,8 +16,8 @@
   <%= @post.content %>
 </p>
 
-<%= link_to 'Edit', (@user.present? ? edit_user_post_path(@user)  : edit_post_path(@post)), class: 'btn btn-default' %> |
-<%= link_to 'Back', (@user.present? ? user_path(@user) : user_path), class: 'btn btn-default' %>
-
-
-
+<% if can? :update, Post %>
+<% if current_user.id == @user.id %>
+<%= link_to 'Edit', (@user.present? ? edit_user_post_path(@user)  : edit_post_path(@post)), class: 'btn btn-default' %> 
+<% end %>
+<% end %>

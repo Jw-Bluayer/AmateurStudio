@@ -7,12 +7,15 @@ class HomeController < ApplicationController
   end
 
   def photographer
-    @posts = @user.present? ? @user.posts.all : Post.all
     @job = User.where(job: "Photographer").take
+    @posts = @user.present? ? @user.posts.all : Post.all
+
   end
 
   def model
-    @posts = @user.present? ? @user.posts.all : Post.all
     @job = User.where(job: "Model").take
+
+    @posts = @user.present? ? @user.posts.all : Post.all
   end
+
 end

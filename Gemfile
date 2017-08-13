@@ -4,6 +4,10 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
+
+#rolify and cancancan
+gem 'cancancan'
+gem 'rolify'
 #carrier wave 사진 넣는것 (동우)
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
