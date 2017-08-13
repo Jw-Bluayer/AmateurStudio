@@ -35,6 +35,7 @@
 
 <%= link_to 'New Post', (@user.present? ?  new_user_post_path(@user) : new_post_path), class: 'btn btn-default' %>
 <%= link_to 'Friends', "/friendships/show", class: 'btn btn-default' %>
+<%= link_to 'Chats', "/conversations/show", class: 'btn btn-default' %>
 
 <!-- 해당 유저의 포스트들 -->
 <h1>Posts</h1>

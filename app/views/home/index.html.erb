@@ -40,3 +40,11 @@
 <!-- 모든 포스트 불러오기 -->
 
 <%= render '/posts/indexofall', post: @post %>
+
+<div class="text-center" id="posts">
+  <%= paginate @posts %>
+</div>
+<div class="text-center" id="paginator">
+  <%= link_to_next_page @posts, 'LOAD MORE',  id: 'load_more' %>
+</div>
+

@@ -32,26 +32,23 @@
 <body>
 
 <% if @job.job == "Model" %>
-
   <div class="posts-wrapper row">
     <div class="container">
     <div class="flex">
-
       <% @posts.each do |post| %>
       <div class="post" >
-        <div class = "col-4">
+
          <div class="image center-block">
+           <div class = "col-4">
           <%= link_to image_tag ("#{post.image.medium}"), class:'img-responsive' %>
+           </div>
          </div>
-        </div>
       </div>
-    <% end %>
+      <% end %>
       </div>
     </div>
   </div>
-
 <% end %>
-
 <div class = "photographer">
 <center>
   <div class = "flex">
