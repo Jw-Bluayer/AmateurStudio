@@ -7,14 +7,15 @@ class HomeController < ApplicationController
   end
 
   def photographer
-    @posts = @user.present? ? @user.posts.all : Post.all.order(created_at: :desc)
-    @job = User.where(job: "Photographer").take
-
+    @job = User.where(job: "Photographer")
+   
   end
 
   def model
-    @posts = @user.present? ? @user.posts.all : Post.all.order(created_at: :desc)
-    @job = User.where(job: "Model").take
+    @job = User.where(job: "Model")
   end
+
+
+
 
 end

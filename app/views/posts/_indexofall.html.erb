@@ -2,13 +2,13 @@
   <div class="container">
   <div class="flex">
 
-    <% @posts.each do |post| %>
 
     <div class="post">
 
       <div class = "image col-4">
 
          <div class="image_block" >
+         <% @posts.each do |post| %>
            <%= link_to (image_tag ("#{post.image.medium}")), (@user.present? ? [post.user, post] : post)%>
 
             <div class = "contents p-3 d-flex flex-column justify-content-end">
