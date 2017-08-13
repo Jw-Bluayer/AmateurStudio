@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get 'home/photographer'
   get 'home/model'
   get 'home/index'
+  get 'conversations/show'
 
   resources :posts
-  
+
   resources :profiles
 
   resources :mypage
