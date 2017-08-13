@@ -31,15 +31,16 @@
 
 <body>
 
-<% if @job.job == "Model" %>
   <div class="posts-wrapper row">
     <div class="container">
     <div class="flex">
-      <% @posts.each do |post| %>
       <div class="post" >
 
          <div class="image center-block">
            <div class = "col-4">
+               
+        <% @job.each do |user| %>
+          <% user.posts.each do |post| %>
           <%= link_to image_tag ("#{post.image.medium}"), class:'img-responsive' %>
            </div>
          </div>
