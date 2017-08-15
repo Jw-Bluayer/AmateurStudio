@@ -40,11 +40,6 @@ ActiveRecord::Schema.define(version: 20170812070105) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
-  create_table "notifications", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -73,8 +68,6 @@ ActiveRecord::Schema.define(version: 20170812070105) do
     t.string "place", default: "", null: false
     t.string "introduction", default: "", null: false
     t.string "job", default: "", null: false
-    t.string "job_model", default: "", null: false
-    t.string "job_photographer", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
