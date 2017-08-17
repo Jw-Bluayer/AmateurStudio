@@ -1,0 +1,10 @@
+<div id="comments_form_<%=comment.post.id%>">
+  <%= simple_form_for([comment.post, comment], remote: true ) do | f | %>
+    <div class='form-inputs'>
+      <%= f.input :body, label: false, placeholder: 'Add a comment.', input_html: { rows: 5 } %>
+    </div>
+    <div class='form-actions'>
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
