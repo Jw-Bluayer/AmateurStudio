@@ -53,6 +53,14 @@
   float: left;
 }
 
+<<<<<<< HEAD
+=======
+body {
+  background-color: #fafafa;
+  font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+>>>>>>> 8014f1ede0a717423d274ede422314bcf0c4b20a
 .posts-wrapper {
   padding-top: 40px;
   margin: 0 auto;
@@ -104,4 +112,33 @@
 .edit-links {
   margin-top: 20px;
   margin-bottom: 40px;
+}
+
+.right {
+text-align: right;
+}
+
+.navbar-brand{
+  font-size: 150%;
+  margin-left: 50px;
+  font-weight: 600;
+}
+#navbarText{
+  float: right;
+}
+
+a {
+  color: #bcb5b9;
+}
+
+a:hover{
+  color: #7e57c2;
+  text-decoration: none;
+}
+
+ @media only screen and (max-width : 768px) {
+   .navbar navbar-expand-lg navbar-light bg-light {
+       display: inline-block;
+       float: left;
+    }
 }
