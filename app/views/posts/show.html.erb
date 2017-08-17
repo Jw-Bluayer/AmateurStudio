@@ -21,3 +21,5 @@
 <%= link_to 'Edit', (@user.present? ? edit_user_post_path(@user)  : edit_post_path(@post)), class: 'btn btn-default' %> 
 <% end %>
 <% end %>
+
+<%= render "comments/comments" %>

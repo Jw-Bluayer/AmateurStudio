@@ -1,15 +1,3 @@
    @import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
    @import url(//fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
     @import url(//fonts.googleapis.com/css?family=Alex+Brush);
- 
-.flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-
-
-
-
-
