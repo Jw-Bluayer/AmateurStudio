@@ -58,25 +58,6 @@ body {
   font-family: proxima-nova, 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
-.navbar-brand {
-  a {
-    color: #125688;
-  }
-}
-
-.navbar-default {
-  background-color: #fff;
-  height: 54px;
-  .navbar-nav li a {
-    color: #125688;
-  }
-}
-
-.navbar-container {
-  width: 640px;
-  margin: 0 auto;
-}
-
 .posts-wrapper {
   padding-top: 40px;
   margin: 0 auto;
@@ -131,3 +112,31 @@ body {
   margin-bottom: 40px;
 }
 
+.right {
+text-align: right;
+}
+
+.navbar-brand{
+  font-size: 150%;
+  margin-left: 50px;
+  font-weight: 600;
+}
+#navbarText{
+  float: right;
+}
+
+a {
+  color: #bcb5b9;
+}
+
+a:hover{
+  color: #7e57c2;
+  text-decoration: none;
+}
+
+ @media only screen and (max-width : 768px) {
+   .navbar navbar-expand-lg navbar-light bg-light {
+       display: inline-block;
+       float: left;
+    }
+}
