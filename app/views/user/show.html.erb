@@ -1,69 +1,104 @@
+
 <section class = "gray-box">
+    
+  <div class = "card-body">
+     <div class = "flex">
+    
+    
+      <div class = "img">
+          <% if @user.image.file.nil? %>
+               <img src="https://cdn0.vox-cdn.com/images/verge/default-avatar.v989902574302a6378709709f7baab789b242ebbb.gif" class="img-circle" >
+          <% else%>
+        
+              <img src="<%= image_tag("#{@user.image.main}") %>" class="img-circle">
+        
+          <% end %>
+   
+       </div>
 
-  <% if @user.image.file.nil? %>
-      <%= image_tag("http://www.oldpotterybarn.co.uk/wp-content/uploads/2015/06/default-medium.png") %>
-  <% else%>
 
-      <%= image_tag("#{@user.image.main}") %>
-
-  <% end %>
-
-  <p>
-    <strong>직업군:</strong>
-    <%= @user.job %>
-  </p>
-  <p>
-    <strong>이름:</strong>
-    <%= @user.name %>
-  </p>
-
-  <p>
-    <strong>거주지:</strong>
-    <%= @user.place %>
-  </p>
-
-  <p>
-    <strong>자기소개:</strong>
-    <%= @user.introduction %>
-  </p>
-
-  <%= link_to 'Edit', edit_user_path(@user) %>
-
+      <div class = "wrap">
+          <div class = "text">
+            <p>
+              <strong>직업군:</strong>
+              <%= @user.job %>
+            </p>
+            <p>
+              <strong>이름:</strong>
+              <%= @user.name %>
+            </p>
+          
+            <p>
+              <strong>거주지:</strong>
+              <%= @user.place %>
+            </p>
+          
+            <p>
+              <strong>자기소개:</strong>
+              <%= @user.introduction %>
+            </p>
+          
+            <%= link_to 'Edit', edit_user_path(@user) %>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
 <br>
 
-<%= link_to 'New Post', (@user.present? ?  new_user_post_path(@user) : new_post_path), class: 'btn btn-default' %>
-<%= link_to 'Friends', "/friendships/show", class: 'btn btn-default' %>
-<%= link_to 'Chats', "/conversations/show", class: 'btn btn-default' %>
 
-<!-- 해당 유저의 포스트들 -->
-<h1>Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User_id</th>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @post.each do |post| %>
-      <tr>
-
-        <td><%= post.user_id%></td>
-        <td><%= image_tag("#{post.image.main}")%></td>
-
-        <td><%= post.title %></td>
-        <td><%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %></td>
-        <td><%= link_to 'Edit', (@user.present? ? edit_user_post_path(post.user, post) : edit_post_path(post)), class: 'btn btn-default'%></td>
-        <td><%= link_to 'Destroy', (@user.present? ? [post.user, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'%></td>
-      </tr>
-    <% end %>
+<nav class="stroke">
+    <ul class="nav justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link" href="/users/1/posts/new" lang = "en">New Post</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/friendships/show" lang = "en">Friends</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/conversations/show" lang = "en">Chats</a>
+          </li>
+    
+    </ul>
+  </nav>
+  
 
 
 
-  </tbody>
-</table>
+
+  
+  
+      
+    <!-- 해당 유저의 포스트들 -->
+    <h1><center>Posts</center></h1>
+    
+    
+    <table align="center">
+        <thead>
+          <tr>
+            <th>User_id</th>
+            <th>Title</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+      
+        <tbody>
+          <% @post.each do |post| %>
+            <tr>
+      
+              <td><%= post.user_id%></td>
+              <td><%= image_tag("#{post.image.main}")%></td>
+      
+              <td><%= post.title %></td>
+              <td><%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %></td>
+              <td><%= link_to 'Edit', (@user.present? ? edit_user_post_path(post.user, post) : edit_post_path(post)), class: 'btn btn-default'%></td>
+              <td><%= link_to 'Destroy', (@user.present? ? [post.user, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'%></td>
+            </tr>
+          <% end %>
+      
+      
+      
+        </tbody>
+   </table>

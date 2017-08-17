@@ -1,4 +1,65 @@
+ <head>
+ 
+    <style>
+
+.signup{
+  position: relative;
+  margin: 30px auto;
+  padding: 20px 20px 20px;
+  width: 310px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(0,0,0, .3);
+}
+
+
+
+body {
+  font: 13px/20px "MONTSERRAT", Tahoma, Verdana, sans-serif;
+  color: #404040;
+  background: #eeeae7;
+}
+
+
+input[type=submit] {
+  padding: 0 40px;
+  height: 46px;
+  font-size: 12px;
+  color: #fff;
+  text-shadow: none;
+  background: #00B87F;
+  border: 1px solid;
+  border-color: #07A06D;
+  border-radius: 4px;
+}
+
+input[type=submit]:active {
+  background: #07A06D;
+}
+
+input[type=submit]:hover {
+  background: #07A06D;
+}
+
+
+.lt-ie9 input[type=text], .lt-ie9 input[type=password] {
+  line-height: 34px;
+}
+
+
+</style>
+
+ </head>
+
+
+
+<body>
+
+
+<div class = "signup">
 <h2>Sign up</h2>
+
+
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -42,9 +103,11 @@
       <%= f.text_field :introduction%>
     </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+    <p class="submit"><input type="submit" name="commit" value="SIGN UP"></p>
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+</div>
+
+</body>
