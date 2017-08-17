@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+   end
+
   get 'home/photographer'
   get 'home/model'
   get 'home/index'
