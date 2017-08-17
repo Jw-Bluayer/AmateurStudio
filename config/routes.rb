@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   get 'home/photographer'
   get 'home/model'
   get 'home/index'
