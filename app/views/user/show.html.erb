@@ -1,6 +1,6 @@
+
 <% if current_user.id == @user.id %>
 	<%= render 'user/show' %>
 <% else %>
 	<%= render 'user/showothers' %>
 <% end %>
-

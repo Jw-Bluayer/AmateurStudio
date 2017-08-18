@@ -11,7 +11,7 @@
   padding : 40px;
   background-color: #ffffff;
   background-color: rgba( 255, 255, 255, 0.5 );
-  
+
 }
 
 
@@ -30,7 +30,7 @@
 
 
 <div class="card">
-  
+
 <%= form_for @post, as: :post, method: :post, url: user_posts_path(@user) do |form| %>
 
   <div class="input-group">
@@ -45,7 +45,6 @@
    </div>
   <br>
   
-   
   <div class="field">
     <%= form.label :image %>
     <%= form.file_field :image, accept: 'image/png, image/gif, image/jpeg' %>
@@ -55,4 +54,3 @@
     <%= form.submit %>
   </div>
 <% end %>
-

@@ -61,6 +61,90 @@ function showDivs(n) {
   </form>
 </div>
 
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="home_index.css" media="screen">
+
+<div id="top"></div>
+<section class="gallery">
+	<div class="row">
+    <ul>
+    	<a href="#" class="close"></a>
+        <% @post.each do |post| %>
+          <div class="col-4 col-lg-auto">
+            <div class="responsive">
+              <div class="gallery_show">
+                <a target="_blank">
+                  <li>
+                    <a href= "#item01">
+                    <%= image_tag("#{post.image.main}")%>
+                    </a>
+                  </li>
+                </a>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+			<li>
+				<a href="#item02">
+					<img src="https://d13yacurqjgara.cloudfront.net/users/22177/screenshots/1474358/respecthustle-bearfight-jeremiahbritton-.png" alt="">
+				</a>
+			</li>
+
+			<li>
+				<a href="#item02">
+					<img src="https://d13yacurqjgara.cloudfront.net/users/22177/screenshots/1514374/essentialswallpaperdribbble-jeremiahbritton.jpg" alt="">
+				</a>
+			</li>
+
+	<!-- Item 01 -->
+	 <div id= "#item01" class="port">
+		<div class="row">
+			<div class="description">
+				<h1>Item 01</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
+			</div>
+			</div>
+		</div> <!-- / row -->
+
+
+ <!-- / row -->
+
+	</div> <!-- / Item 02 -->
+	<!-- Item 02 -->
+	<div id="item02" class="port">
+		<div class="row">
+			<div class="description">
+				<h1>Item 02</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero erat. Integer ac purus est. Proin erat mi, pulvinar ut magna eget, consectetur auctor turpis.</p>
+			</div>
+			<img src="https://d13yacurqjgara.cloudfront.net/users/22177/screenshots/404704/wontstopblue-womens-jeremiahbritton.jpg" alt="">
+		</div> <!-- / row -->
+
+	</div> <!-- / Item 02 -->
+
+</section> <!-- / projects -->
+
+<script>
+ // portfolio
+ $('.gallery ul li a').click(function() {
+     var itemID = $(this).attr('href');
+     $('.gallery ul').addClass('item_open');
+     $(itemID).addClass('item_open');
+     return false;
+ });
+ $('.close').click(function() {
+     $('.port, .gallery ul').removeClass('item_open');
+     return false;
+ });
+
+ $(".gallery ul li a").click(function() {
+     $('html, body').animate({
+         scrollTop: parseInt($("#top").offset().top)
+     }, 400);
+ });
+</script>
 
 <!-- 모든 포스트 불러오기 -->
 
