@@ -60,46 +60,72 @@ function showDivs(n) {
 </div>
 
 <body>
-  <div class="posts-wrapper row">
-    <div class="container">
-    <div class="flex">
-      <div class="post" >
-        <div class = "col-4">
-         <div class="image center-block">
-         <% @job.each do |user| %>
-          <% user.posts.each do |post| %>
-          <%= link_to image_tag ("#{post.image.medium}"), class:'img-responsive' %>
-         </div>
+
+
+    <style>
+    div.flex {
+      display: flex
+      flex-direction: row;
+    }
+    div.gallery {
+        margin: 5px;
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+    }
+
+    div.gallery:hover {
+        border: 1px solid #777;
+    }
+
+    div.gallery img {
+        width: 100%;
+        height: auto;
+    }
+
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .responsive {
+        padding:0 6px;
+        float: left;
+        width: 24.99999%;
+    }
+
+    @media only screen and (max-width: 700px){
+        .responsive {
+            width: 49.99999%;
+            margin: 6px 0;
+        }
+    }
+
+    @media only screen and (max-width: 500px){
+        .responsive {
+            width: 100%;
+        }
+    }
+
+    </style>
+    <body>
+
+    <div class ="flex_index">
+    <% @job.each do |user| %>
+      <% user.posts.each do |post| %>
+        <div class="responsive">
+          <div class="gallery">
+            <a target="_blank">
+              <%= image_tag("#{post.image.main}", class:'img-responsive' )%>
+            </a>
+          <div class="desc">
+          <%= post.title%>
+          <br>
+          <%= link_to "더보기",user_post_path(:id => post.id, :user_id => post.user_id) %>
+          </div>
+          </div>
         </div>
-      </div>
     <% end %>
-      </div>
+    <% end %>
     </div>
-  </div>
-<% end %>
-<div class = "photographer">
-<center>
-  <div class = "flex">
-
-    <div class="col-6 ">
-      <div class = "textWithBlurredBg">
-        <img src = "/assets/44.jpg">
-          <h2>info</h2>
-            <!--<h3>content</h3>-->
-      </div>
-    </div>
-
-
-    <div class="col-6 ">
-      <div class = "textWithBlurredBg">
-        <img src = "/assets/44.jpg">
-          <h2>info2</h2>
-            <!--<h3>content</h3>-->
-      </div>
-    </div>
-  </div>
-
-</center>
-
-</div>
 </body>

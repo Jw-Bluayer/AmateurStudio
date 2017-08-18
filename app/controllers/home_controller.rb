@@ -8,10 +8,11 @@ class HomeController < ApplicationController
 
   def photographer
     @job = User.where(job: "Photographer")
-
+    @post = @user.present? ? @user.posts.all : Post.all
   end
 
   def model
     @job = User.where(job: "Model")
+    @post = @user.present? ? @user.posts.all : Post.all
   end
 end
