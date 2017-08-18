@@ -1,0 +1,87 @@
+<head>
+  <link rel="stylesheet" type="text/css" href="user_show.css" media="screen" />
+</head>
+
+
+<body>
+<section class = "gray-box">
+  <div class = "card-body">
+     <div class = "flex">
+      <div class = "img">
+          <% if @user.image.file.nil? %>
+               <img src="https://cdn0.vox-cdn.com/images/verge/default-avatar.v989902574302a6378709709f7baab789b242ebbb.gif" class="img-circle" >
+          <% else%>
+              <%= image_tag("#{@user.image.main}", class: 'img-circle')  %>
+          <% end %>
+       </div>
+
+     <div class = "wrap">
+          <div class = "text">
+            <p>
+              <strong>직업군:</strong>
+              <%= @user.job %>
+            </p>
+            <p>
+              <strong>이름:</strong>
+              <%= @user.name %>
+            </p>
+
+           <p>
+              <strong>거주지:</strong>
+              <%= @user.place %>
+            </p>
+
+           <p>
+              <strong>자기소개:</strong>
+              <%= @user.introduction %>
+            </p>
+
+           
+       </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<br>
+
+ <div class = "user_ul">
+    <ul>
+      <li class="mypagenav-item">
+        <a class="mypagenav-link" href="/friendships/show" lang = "en">친구추가</a>
+      </li>
+    </ul>
+  </div>
+
+   <!-- 해당 유저의 포스트들 -->
+    <h1><center>Posts</center></h1>
+
+
+   <table align="center">
+        <thead>
+          <tr>
+            <th>User_id</th>
+            <th>Title</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+       <tbody>
+          <% @post.each do |post| %>
+            <tr>
+
+             <td><%= post.user_id%></td>
+              <td><%= image_tag("#{post.image.main}")%></td>
+
+             <td><%= post.title %></td>
+              <td><%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %></td>
+             
+            </tr>
+          <% end %>
+
+
+
+       </tbody>
+   </table>
+
+  </body>
