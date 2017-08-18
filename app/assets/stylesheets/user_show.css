@@ -13,22 +13,22 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    
+
 }
 
 
 .text{
-    text-align:left; 
-    margin-left:60px ; 
+    text-align:left;
+    margin-left:60px ;
     margin-top: 50px;
-    
+
 }
 
 
 .warp{
-     
+
      text-align: right;
-    
+
 }
 
 
@@ -40,13 +40,15 @@ nav {
   margin: 0 auto;
   background: #fff;
   padding: 50px 0;
-  
+
 }
- ul {
+
+.user_ul {
   list-style: none;
   text-align: center;
 }
- ul li {
+
+.user_ul li {
   display: inline-block;
 }
 

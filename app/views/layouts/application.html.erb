@@ -17,7 +17,6 @@
   body {
     background-color: white;
   }
-
 </style>
 </head>
 <!-- navbar -->
@@ -32,7 +31,7 @@
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? %>
             <li class="nav-item top-nav">
-             <span class="navbar-text">           
+             <span class="navbar-text">
                <a href="/user/<%= current_user.id%>"><%= current_user.email %></a>
             </span></li>
             <li class="nav-item">
@@ -42,16 +41,16 @@
           <% else %>
               <li class="nav-item">
               <span class="navbar-text top-nav">
-                <%= link_to "Sign in", new_user_session_path %>            
+                <%= link_to "Sign in", new_user_session_path %>
               </span></li>
               <li class="nav-item">
               <span class="navbar-text top-nav">
-                <%= link_to "Sign up", new_user_registration_path %>                
+                <%= link_to "Sign up", new_user_registration_path %>
               </span></li>
           <% end %>
         </ul>
       </div>
-    </div>      
+    </div>
   </nav>
 </header>
 
