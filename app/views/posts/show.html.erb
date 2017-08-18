@@ -337,7 +337,7 @@ cite {
 	              <%= image_tag("#{@user.image.main}", class: "avatar-32")  %>
 	        <% end %>
 	          <strong>
-	          <a title="Full Name" href="#">
+	          <a title="Full Name" href="/user/<%= @user.id%>">
 	            <%= @user.name %>
 	          </a>
 	        </strong>

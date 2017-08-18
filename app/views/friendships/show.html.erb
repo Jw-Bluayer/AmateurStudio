@@ -15,7 +15,7 @@
 
 		<% unless user == current_user || user == current_user && user.pending == true %>
       <li class="list-group-item">
-				<%= user.email %>
+				<%= user.name %>
 				<%= link_to "Add Friend", friendships_path(friend_id: user), method: :post %>
       </li>
 		<% end %>
@@ -27,7 +27,7 @@
 <ul class="list-group">
     <% current_user.requested_friendships.each do |request| %>
     <li class="list-group-item">
-      <%= request.email %>
+      <%= request.name %>
       <%= link_to "Accept",  friendship_path(id: request.id), method: "put" %>
       <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
     </li>
@@ -40,7 +40,7 @@
 <ul class="list-group">
     <% current_user.pending_friends.each do |request| %>
     <li class="list-group-item">
-      <%= request.email %>
+      <%= request.name %>
       <%= link_to "Decline", friendship_path(id: request.id), method: :delete %>
     </li>
   <% end %>
@@ -50,7 +50,7 @@
 <ul class="list-group">
 <% current_user.friends.each do |request| %>
 <li class="list-group-item">
-    <%= request.email %>
+    <%= request.name %>
 </li>
 <% end %>
 </ul>
