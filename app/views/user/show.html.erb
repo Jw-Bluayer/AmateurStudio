@@ -60,7 +60,9 @@
           <% if @user.image.file.nil? %>
               <img src="https://cdn0.vox-cdn.com/images/verge/default-avatar.v989902574302a6378709709f7baab789b242ebbb.gif" class="img-circle" >
           <% else%>
+
               <%= image_tag("#{@user.image.main}", class: 'img-circle')  %>
+
           <% end %>
        </div>
 
