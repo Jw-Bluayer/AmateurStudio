@@ -5,6 +5,12 @@ class UserController < ApplicationController
     @post = @user.present? ? @user.posts.all : Post.all
   end
 
+
+  def showothers
+    @user = User.find(params[:id])
+    @post = @user.present? ? @user.posts.all : Post.all
+  end
+
   def edit
     @user = User.find(params[:id])
   end

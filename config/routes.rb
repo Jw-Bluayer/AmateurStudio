@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'conversations/show'
 
+
+  #다른 유저의 마이페이지 
+  get 'users/:id' => 'user#showothers'
+
+
   resources :posts
 
   resources :profiles
