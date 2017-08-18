@@ -36,16 +36,23 @@
 
 /* NAVIGATION */
 nav {
-  width: 80%;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
   background: #fff;
   padding: 50px 0;
 
 }
 
+nav a{
+     color: #ffc200;
+     text-decoration:none;
+}
+
 .user_ul {
   list-style: none;
   text-align: center;
+  
 }
 
 .user_ul li {
@@ -59,7 +66,7 @@ nav ul li a:before {
   margin: 20px;
 }
 nav ul li a:hover {
-  color: ##7e57c2;;
+  color: #7e57c2;
 }
 
 

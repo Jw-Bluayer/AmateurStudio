@@ -1,25 +1,372 @@
-<p id="notice"><%= notice %></p>
+<head>
+<style>
+	/*Baseline/Vertical Rhythm: 8px;*/
+/*@import url(https://basehold.it/8);*/
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic|PT+Serif:400,400italic,700,700italic);
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
 
 
-<p>
-  <td><%= image_tag("#{@post.image}")%></td>
-</p>
+body {
+  background: #fafafa;
+  color: #333;
+  /*Sometimes fonts don't display optimally on all devices*/
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  /*font-weight:300;*/
+}
+
+a,.user {
+  text-decoration: none;
+  color: #88d;
+}
+
+a:hover {
+  color: #5b5;
+}
+
+a.button {
+	display: inline-block;
+	text-align: center;
+	padding: 14px 24px;
+	font-weight: 600;
+	cursor: pointer;
+	line-height: 1;
+  background: #88d;
+}
+p,
+li,
+time {
+  font-size: 1.6rem;
+  line-height: 3.2rem;
+  margin: 0 0 2.4rem;
+}
+[class*="card-"] h1,
+[class*="card-"] h2 {
+  font: 600 2.4rem/3.2rem "PT Serif", palatino, times, serif;
+  margin: 0 0 .8rem;
+  padding: 0;
+}
+figure {
+  position: relative;
+  margin: 0;
+  line-height: 0;
+}
+
+img {
+  border: 0;
+  height: auto;
+  max-width: 100%;
+}
+
+img:hover {
+  filter: alpha(opacity=9000);
+  opacity: 0.90;
+  filter: alpha(opacity=90);
+}
+
+article,
+figure,
+footer,
+header,
+main {
+  display: block;
+}
+/*--- Clearings ---*/
+
+header:before,
+header:after,
+main:before,
+main:after {
+  content: "";
+  display: table;
+}
+
+header:after,
+main:after {
+  clear: both;
+}
+
+main {
+  position: relative;
+  width: 1200px;
+  max-width: 96%;
+  margin: 0 auto;
+}
 
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+/*=== Avatars === */
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+img[class*="avatar-"] {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 6px;
+}
 
-<% if can? :update, Post %>
-<% if current_user.id == @user.id %>
-<%= link_to 'Edit', (@user.present? ? edit_user_post_path(@user)  : edit_post_path(@post)), class: 'btn btn-default' %> 
-<% end %>
-<% end %>
+img[class*="avatar-"] {
+  border-radius: 50%
+}
 
-<%= render "comments/comments" %>
+img.avatar-32 {
+  width: 32px;
+  height: 32px;
+}
+
+/*=== Cards === */
+
+[class*="card-"],
+[class*="card-"]>a {
+  position: relative;
+  list-style: none;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  margin-bottom: 6rem;
+  width: 100%;
+  /*align-items: center;
+  /*min-height: 100vh;*/
+}
+
+
+[class*="card-"] figure img {
+  margin: 0 auto;
+  display: block;
+}
+/*==  Horizontal Cards / Images inside container: 
+object-fit to re-frame images rather than just stretch and resize them  === */
+
+@media (min-width: 800px) and (max-width: 1200px) {
+[class*="card-"] figure {
+    vertical-align: middle;
+    text-align: center;
+    min-width: 250px;
+    max-height: 100%;
+}
+[class*="card-"] figure img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+ }
+}
+.flex-content {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.4rem;
+}
+.flex-content p,.flex-content li{
+position: relative;
+font-size: 1.6rem;
+line-height: 3.2rem;
+}
+[class*="card-"] .flex-content p:last-child{margin-bottom: 0;}
+
+[class*="card-"] p.user {
+  position: relative;
+  line-height: .8rem;
+  font-size: 1.4rem;
+}
+[class*="card-"] p.subinfo {
+  margin-bottom: .8rem;
+}
+/*== Social Card - Header === */
+[class*="card-"] header p.user {
+  margin: 0;
+}
+
+[class*="card-"] .user img[class*="avatar-"] {
+  float: left;
+}
+[class*="card-"] .user span {
+  display: block;
+  margin-top: 1.3rem;
+}
+
+[class*="card-"] .flex-content a.button {
+  float:right;
+  font-weight:600;
+  padding: .8rem;
+  border-radius: 3px;
+}
+
+
+@media (min-width: 800px) {
+  /*== Cards (Sizes) - Reference: figure img:-70,60,50,40,30... === */
+  .card-30 figure,
+  .card-70 .flex-content {
+    width: 30%;
+  }
+  .card-40 figure,
+  .card-60 .flex-content {
+    width: 40%;
+  }
+  .card-50 figure,
+  .card-50 .flex-content {
+    width: 50%;
+  }
+  .card-60 figure,
+  .card-40 .flex-content {
+    width: 60%;
+  }
+  .card-70 figure,
+  .card-30 .flex-content {
+    width: 70%;
+  }
+  [class*="card-"]:nth-child(odd) figure {
+    order: 0
+  }
+  [class*="card-"]:nth-child(even) figure {
+    order: 1;
+  }
+  [class*="card-"]:nth-child(odd) .ribbon-buy {
+    left: 3.2rem;
+  }
+  .flex-content {
+    padding: 3.2rem 3.2rem 2.4rem;
+  }
+}
+[class*="card-"] header {
+  padding-bottom:1.6rem;
+  margin-bottom: 1.4rem;
+}
+
+@media (max-width: 500px) {
+  [class*="card-"] footer a[class*="bt-"] {
+    text-indent: -4000px;
+    width: 24px;
+  }
+}
+
+/*== List Product/Specs === */
+
+[class*="card-"] .flex-content ul {
+  margin: 0 0 1.2rem;
+  padding:0;
+}
+[class*="card-"] .flex-content li strong {width: 96px; display: inline-block;
+}
+[class*="card-"] .flex-content ul>li {
+  margin: 0;
+  padding: .4rem 0;
+  list-style: none;
+}
+
+/*==== COLORS === */
+
+main [class*="card-"] {
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(50, 50, 50, 0.15), 0 0 1px rgba(50, 50, 50, 0.15);
+}
+
+
+/*== Card - Footer === */
+
+[class*="card-"] footer p {
+  border-top: 1px solid #eee;
+}
+
+
+
+[class*="card-"] a.button.followed,[class*="card-"] a.button:hover {
+  background: #6c7;
+}
+
+
+[class*="card-"] ul>li {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+[class*="card-"] ul>li:last-child {border-bottom: none;}
+[class*="card-"] a.button {color:#fff;}
+[class*="card-"] footer a,
+cite {
+  color: #bbb;
+}
+
+[class*="card-"] footer a:hover {
+  color: #333;
+}
+
+
+
+
+
+</style>
+</head>
+
+
+
+<body>
+<br><br><br><br><br><br><br><br>
+<main role="main">
+  <article class="card-60 social">
+    <figure>
+      
+     <%= image_tag("#{@post.image}")%>
+    </figure>
+    <!-- end figure-->
+    <div class="flex-content">
+      <header>
+        <p class="user">         
+			<% if can? :update, Post %>
+			<% if current_user.id == @user.id %>
+			<%= link_to 'Edit', (@user.present? ? edit_user_post_path(@user)  : edit_post_path(@post)), class: 'button follow' %> 
+			<% end %>
+			<% end %>
+	        </a>
+	          <% if @user.image.file.nil? %>
+	              <img src="https://cdn0.vox-cdn.com/images/verge/default-avatar.v989902574302a6378709709f7baab789b242ebbb.gif" class="avatar-32" >
+	        <% else%>
+	              <%= image_tag("#{@user.image.main}", class: "avatar-32")  %>
+	        <% end %>
+	          <strong>
+	          <a title="Full Name" href="#">
+	            <%= @user.name %>
+	          </a>
+	        </strong>
+	          <span>8 mins ago · Barcelona</span>
+	        </p>
+	      </header>
+	      <h2>
+			<%= @post.title %>
+	      </h2>
+
+
+	      <p>
+	         <%= @post.content %>
+	      </p>
+	      <footer>
+	       <%= render "comments/comments" %>
+
+	         
+	      </footer>
+    </div>
+    <!-- end .flex-content-->
+  </article>
+
+</main>
+
+
+
+
+
+
+
+</body>

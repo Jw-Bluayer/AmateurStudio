@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_user
-  before_action :authenticate_user! 
+  before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
     @post = @user.present? ? @user.posts.new(post_params) :Post.new(post_params)
 
     respond_to do |format|
-      if @post.save    
+      if @post.save
         format.html { redirect_to (@user.present? ? [@post.user, @post] : @post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -40,7 +40,7 @@ class PostsController < ApplicationController
       end
     end
   end
-  
+
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
@@ -82,7 +82,7 @@ class PostsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params 
+    def post_params
       params.require(:post).permit(:title, :content, :image)
     end
 end
