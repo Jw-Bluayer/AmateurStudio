@@ -1,7 +1,11 @@
 <head>
   <link rel="stylesheet" type="text/css" href="user_show.css" media="screen">
   <style>
-
+.purpleline{
+  border-bottom: 1px solid 	#DA70D6;
+  width: 100%;
+  margin-bottom: 70px;
+}
   div.gallery_show {
       border: 1px solid #ccc;
   }
@@ -54,9 +58,7 @@
 
 <body>
   <br>
-  <br>
-  <br>
-  <br>
+
 <section class = "gray-box">
   <div class = "card-body">
      <div class = "flex">
@@ -99,6 +101,7 @@
 </section>
 
 <br>
+<div class = "purpleline">
 <nav class="stroke">
   <ul class="mypagenav justify-content-center">
   <div class = "user_ul">
@@ -116,6 +119,7 @@
   </div>
 </ul>
 </nav>
+</div>
     <!-- 해당 유저의 포스트들 -->
 <% @post.each do |post| %>
   <div class="col-4 col-lg-auto">
@@ -124,15 +128,17 @@
         <a target="_blank">
           <%= image_tag("#{post.image.main}")%>
         </a>
-                    <div class="desc">
-                      <%= post.title %>
-                      <br>
-                        <%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %>
-                        <%= link_to 'Edit', (@user.present? ? edit_user_post_path(post.user, post) : edit_post_path(post)), class: 'btn btn-default'%>
-                        <%= link_to 'Destroy', (@user.present? ? [post.user, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'%>
-                    </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
+      <div class="desc">
+        <h2>
+          <%= post.title%>
+        </h2>
+        <br>
+        <%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %>
+        <%= link_to 'Edit', (@user.present? ? edit_user_post_path(post.user, post) : edit_post_path(post)), class: 'btn btn-default'%>
+        <%= link_to 'Destroy', (@user.present? ? [post.user, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'%>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 </body>
