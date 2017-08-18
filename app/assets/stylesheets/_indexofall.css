@@ -1,25 +1,17 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
-
-
 .post{
-
 width : 100%;
 height : auto;
-
 }
 
 .image{
    position:relative;
-
 }
 
 .image :hover  .contents{
    opacity : 1;
-
-
 }
 .contents{
-
    position: absolute;
    top: 0;
    left: 0;
@@ -28,7 +20,6 @@ height : auto;
    background-color: rgba(219,219,219,.8);
    opacity:0;
    transition: all 0.2s ease-in-out;
-
 }
 
 .name{
@@ -40,9 +31,7 @@ height : auto;
 
 
 .info{
-    font-family: 'Nanum Gothic', serif;
-
+   font-family: 'Nanum Gothic', serif;
    font-size : 20px;
    line-height: 1.0;
-
 }
