@@ -119,7 +119,9 @@ function showDivs(n) {
               <%= image_tag("#{post.image.main}", class:'img-responsive' )%>
             </a>
           <div class="desc">
-          <%= post.title%>
+          <h2>
+            <%= post.title%>
+          </h2>
           <br>
           <%= link_to "더보기",user_post_path(:id => post.id, :user_id => post.user_id) %>
           </div>
