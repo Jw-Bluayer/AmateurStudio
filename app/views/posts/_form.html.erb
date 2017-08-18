@@ -33,20 +33,19 @@
   
 <%= form_for @post, as: :post, method: :post, url: user_posts_path(@user) do |form| %>
 
-
-  
   <div class="input-group">
-  <span class="input-group-addon" id="post_title">Title</span>
-  <input type="text" class="form-control" placeholder="Title">
-  </div>
-<br>
+   <span class="input-group-addon">Title</span>
+   <%= form.text_field :title, id: :post_title ,placeholder: "Title", class: 'form-control'%>
+   </div>
+  <br>
 
   <div class="input-group">
-  <span class="input-group-addon" id="post_content">Content</span>
-  <input type="field" class="form-control" placeholder="Content">
-  </div>
-<br>
+   <span class="input-group-addon">Content</span>
+   <%= form.text_area :content, id: :post_content ,placeholder: "Content" , class: 'form-control'%>
+   </div>
+  <br>
   
+   
   <div class="field">
     <%= form.label :image %>
     <%= form.file_field :image, accept: 'image/png, image/gif, image/jpeg' %>
