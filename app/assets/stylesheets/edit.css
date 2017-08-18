@@ -1,0 +1,43 @@
+.sign{
+
+position: relative;
+  margin: 30px auto;
+  padding: 20px 20px 20px;
+  width:50%;
+  height:auto;
+ box-shadow: 0 0 10px rgba(0,0,0, .3);
+  border-radius: 3px;
+   background-color: #ffffff;
+  background-color: rgba( 255, 255, 255, 0.5 );
+}
+
+
+input[type=submit] {
+  padding: 0 40px;
+  height: 46px;
+  font-size: 12px;
+  color: #fff;
+  text-shadow: none;
+  background: #ffc200;
+  border: 1px solid;
+  border-color: #FFCE00;
+  border-radius: 4px;
+}
+
+input[type=submit]:active {
+  background: #FFCE00;
+}
+
+input[type=submit]:hover {
+  background: #FFCE00;
+}
+
+input[type=text] {
+    border: none;
+    border-bottom: 2px solid orange;
+}
+
+textarea {
+     border: none;
+    border-bottom: 2px solid orange;
+}

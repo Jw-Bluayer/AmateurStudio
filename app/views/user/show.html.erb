@@ -45,26 +45,10 @@
 
 <br>
 
-
-
-<nav class="stroke">
-<<<<<<< HEAD
-    <ul class="mypagenav justify-content-center">
-          <li class="mypagenav-item">
-            <%= link_to 'New Post', (@user.present? ?  new_user_post_path(@user) : new_post_path), class: 'mypagenav-link' %>
-          </li>
-          <li class="mypagenav-item">
-            <a class="mypagenav-link" href="/friendships/show" lang = "en">Friends</a>
-          </li>
-          <li class="mypagenav-item">
-            <a class="mypagenav-link" href="/conversations/show" lang = "en">Chats</a>
-          </li>
-    
-=======
   <div class = "user_ul">
     <ul>
       <li class="mypagenav-item">
-        <a class="mypagenav-link" href="/users/1/posts/new" lang = "en">New Post</a>
+          <%= link_to 'New Post', (@user.present? ?  new_user_post_path(@user) : new_post_path), class: 'mypagenav-link' %>
       </li>
       <li class="mypagenav-item">
         <a class="mypagenav-link" href="/friendships/show" lang = "en">Friends</a>
@@ -72,17 +56,9 @@
       <li class="mypagenav-item">
         <a class="mypagenav-link" href="/conversations/show" lang = "en">Chats</a>
       </li>
->>>>>>> 20f009bf080ddd4feb6a0f5d2361519d960c8f2e
+
     </ul>
   </div>
-</nav>
-
-
-
-
-
-
-
 
     <!-- 해당 유저의 포스트들 -->
     <h1><center>Posts</center></h1>
