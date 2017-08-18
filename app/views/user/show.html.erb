@@ -57,7 +57,7 @@
 <nav class="stroke">
     <ul class="mypagenav justify-content-center">
           <li class="mypagenav-item">
-            <a class="mypagenav-link" href="/users/1/posts/new" lang = "en">New Post</a>
+            <%= link_to 'New Post', (@user.present? ?  new_user_post_path(@user) : new_post_path), class: 'mypagenav-link' %>
           </li>
           <li class="mypagenav-item">
             <a class="mypagenav-link" href="/friendships/show" lang = "en">Friends</a>

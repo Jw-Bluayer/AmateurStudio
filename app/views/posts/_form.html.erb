@@ -1,21 +1,24 @@
+
+
+
+
+
 <%= form_for @post, as: :post, method: :post, url: user_posts_path(@user) do |form| %>
-  
+<div class="container">  
     <div class="field">
-      <%= form.label :title %>
-      <%= form.text_field :title, id: :post_title %>
+      <%= form.text_field :title, id: :post_title ,placeholder: "Title", class: 'form-control'%>
     </div>
 
     <div class="field">
-      <%= form.label :content %>
-      <%= form.text_area :content, id: :post_content %>
+      <%= form.text_area :content, id: :post_content ,placeholder: "Content" , class: 'form-control'%>
     </div>
     
     <div class="field">
-      <%= form.label :image %>
       <%= form.file_field :image, accept: 'image/png, image/gif, image/jpeg' %>
     </div>
 
     <div class="actions">
       <%= form.submit %>
+    </div>
     </div>
 <% end %>
