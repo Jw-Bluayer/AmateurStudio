@@ -1,24 +1,59 @@
+<style>
+
+
+.card{
+  position: relative;
+  text-align:center;
+  width: 500px; /* Remove for full width */
+  height: auto; /* Remove for full width */
+  margin:30px auto;
+  box-shadow: 0 0 10px rgba(0,0,0, .3);
+  padding : 40px;
+  background-color: #ffffff;
+  background-color: rgba( 255, 255, 255, 0.5 );
+  
+}
 
 
 
+.h1{
+    position:relative;
+    text-align: center;
+    margin-top: 30px;
+
+}
+
+</style>
 
 
+<h1 style="text-align: center">Photo Upload</h1>
+
+
+<div class="card">
+  
 <%= form_for @post, as: :post, method: :post, url: user_posts_path(@user) do |form| %>
-<div class="container">  
-    <div class="field">
-      <%= form.text_field :title, id: :post_title ,placeholder: "Title", class: 'form-control'%>
-    </div>
 
-    <div class="field">
-      <%= form.text_area :content, id: :post_content ,placeholder: "Content" , class: 'form-control'%>
-    </div>
-    
-    <div class="field">
-      <%= form.file_field :image, accept: 'image/png, image/gif, image/jpeg' %>
-    </div>
 
-    <div class="actions">
-      <%= form.submit %>
-    </div>
-    </div>
+  
+  <div class="input-group">
+  <span class="input-group-addon" id="post_title">Title</span>
+  <input type="text" class="form-control" placeholder="Title">
+  </div>
+<br>
+
+  <div class="input-group">
+  <span class="input-group-addon" id="post_content">Content</span>
+  <input type="field" class="form-control" placeholder="Content">
+  </div>
+<br>
+  
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, accept: 'image/png, image/gif, image/jpeg' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
 <% end %>
+
