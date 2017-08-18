@@ -1,5 +1,54 @@
 <head>
-  <link rel="stylesheet" type="text/css" href="user_show.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="user_show.css" media="screen">
+  <style>
+
+  div.gallery_show {
+      border: 1px solid #ccc;
+  }
+
+  div.gallery_show:hover {
+      border: 1px solid #777;
+  }
+
+  div.gallery_show img {
+      width: 100%;
+      height: auto;
+  }
+
+  div.desc {
+      padding: 15px;
+      text-align: center;
+  }
+
+  * {
+      box-sizing: border-box;
+  }
+
+  .responsive {
+      padding: 0 6px;
+      float: left;
+      width: 24.99999%;
+  }
+
+  @media only screen and (max-width: 700px){
+      .responsive {
+          width: 49.99999%;
+          margin: 6px 0;
+      }
+  }
+
+  @media only screen and (max-width: 500px){
+      .responsive {
+          width: 100%;
+      }
+  }
+
+  .clearfix:after {
+      content: "";
+      display: table;
+      clear: both;
+  }
+  </style>
 </head>
 
 
@@ -9,9 +58,9 @@
      <div class = "flex">
       <div class = "img">
           <% if @user.image.file.nil? %>
-               <img src="https://cdn0.vox-cdn.com/images/verge/default-avatar.v989902574302a6378709709f7baab789b242ebbb.gif" class="img-circle" >
+              <img src="https://cdn0.vox-cdn.com/images/verge/default-avatar.v989902574302a6378709709f7baab789b242ebbb.gif" class="img-circle" >
           <% else%>
-              <img src="<%= image_tag("#{@user.image.main}") %>" class="img-circle">
+              <%= image_tag("#{@user.image.main}", class: 'img-circle')  %>
           <% end %>
        </div>
 
@@ -44,7 +93,8 @@
 </section>
 
 <br>
-
+<nav class="stroke">
+  <ul class="mypagenav justify-content-center">
   <div class = "user_ul">
     <ul>
       <li class="mypagenav-item">
@@ -56,40 +106,40 @@
       <li class="mypagenav-item">
         <a class="mypagenav-link" href="/conversations/show" lang = "en">Chats</a>
       </li>
-
     </ul>
   </div>
+</ul>
+</nav>
 
     <!-- 해당 유저의 포스트들 -->
     <h1><center>Posts</center></h1>
-
-
     <table align="center">
         <thead>
           <tr>
             <th>User_id</th>
             <th>Title</th>
-            <th colspan="3"></th>
+            <th colspan="4"></th>
           </tr>
         </thead>
-
-        <tbody>
+   </table>
           <% @post.each do |post| %>
-            <tr>
 
-              <td><%= post.user_id%></td>
-              <td><%= image_tag("#{post.image.main}")%></td>
-
-              <td><%= post.title %></td>
-              <td><%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %></td>
-              <td><%= link_to 'Edit', (@user.present? ? edit_user_post_path(post.user, post) : edit_post_path(post)), class: 'btn btn-default'%></td>
-              <td><%= link_to 'Destroy', (@user.present? ? [post.user, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'%></td>
-            </tr>
+            <div class="col-4 col-lg-auto">
+              <div class="responsive">
+                <div class="gallery_show">
+                  <a target="_blank">
+                    <%= image_tag("#{post.image.main}")%>
+                  </a>
+                    <div class="desc">
+                      <%= post.title %>
+                      <br>
+                        <%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %>
+                        <%= link_to 'Edit', (@user.present? ? edit_user_post_path(post.user, post) : edit_post_path(post)), class: 'btn btn-default'%>
+                        <%= link_to 'Destroy', (@user.present? ? [post.user, post] : post), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default'%>
+                    </div>
+                </div>
+              </div>
+            </div>
           <% end %>
 
-
-
-        </tbody>
-   </table>
-
-   </body>
+</body>
