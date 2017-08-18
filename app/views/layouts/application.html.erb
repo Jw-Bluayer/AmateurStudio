@@ -57,30 +57,33 @@
 <body>
   <div class="container">
         <%= yield %>
-      </div>
-      <div class="fixed-action-btn horizontal click-to-toggle" >
-      <a href="#" class="top"><img src ="../assets/위로.png" width="40px" height="40px" align = "right" style =" margin-bottom  : 10px"> </a>
-   </div>
   </div>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
   <script>
-      <!--위로올라가기-->
-      $( window ).scroll( function() {
-  	    if ( $( this ).scrollTop() > 200 ) {
-  	        $( '.top' ).fadeIn();
-  	    }
-  	    else {
-  	        $( '.top' ).fadeOut();
-  	    }
-  	} );
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function() {scrollFunction()};
 
-      $( '.top' ).click( function() {
-  	    $( 'html, body' ).animate( { scrollTop : 0 }, 400 );
-  	    return false;
-  	} );
-  </script>
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            document.getElementById("myBtn").style.display = "block";
+        } else {
+            document.getElementById("myBtn").style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        document.body.scrollTop = 0; // For Chrome, Safari and Opera
+        document.documentElement.scrollTop = 0; // For IE and Firefox
+    }
+
+</script>
+
+
 
 </body>
+
 <footer>
  <center>
     <a href="/"><img src="../assets/footer/서비스소개off.png" onmouseover="this.src='../assets/footer/서비스소개on.png'" onmouseout="this.src='../assets/footer/서비스소개off.png'"></a>
