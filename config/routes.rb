@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :user
 
-  devise_for :users ,:path => 'accounts'
+  devise_for :users ,:path => 'accounts', :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
   resources :users do
     resources :posts
   end
