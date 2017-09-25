@@ -1,0 +1,27 @@
+<div class="container" style="margin-top:70px">
+<hr>
+   <%= form_tag('/review/add', multipart: true) do %>
+      <div class="form-group">
+        <label for="exampleInputName2"> 작업주제 </label>
+        <textarea name="worktitle" class="form-control" rows = "3" placeholder="주제"></textarea>
+      </div>
+
+       <div class="form-group">
+        <label for="exampleInputName2"> 작업장소 </label>
+        <textarea name="place" class="form-control"  placeholder="작업 장소"></textarea>
+      </div>
+
+       <div class="form-group">
+        <label for="exampleInputName2"> 작업일자 </label>
+        <input type="date" name="day" class="form-control" id="exampleInputName2" placeholder="2017년 1월 1일"></textarea>
+      </div>
+
+       <div class="form-group">
+        <label for="exampleInputName2"> 개인평가 </label>
+        <textarea name="eval" class="form-control" placeholder="평가해주세요"></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-default"> 저 장 </button>
+    <% end %>
+</div>
+<hr>

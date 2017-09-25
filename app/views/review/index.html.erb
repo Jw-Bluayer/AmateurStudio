@@ -1,0 +1,26 @@
+<div class="container">
+    <table class="table">
+       <thead style="font-size:30px; align="center"">
+            <tr>
+                 <th> <strong>번호</strong> </th>
+                 <th> <strong>작성자</strong> </th>
+                 <th> <strong>장소</strong> </th>
+                 <th> <strong>일자</strong> </th>
+            </tr>
+        </thead>
+
+       <% @reviews.each do |r| %>
+       <tbody>
+        <tr>
+             <th> <%= r.id %></th>
+             <th> <%= r.worktitleReview%> </th>
+             <th> <a href= "<%= "/review/show/" + r.id.to_s%>"><%= r.placeReview %></a> </th>
+             <th> <%= r.dayReview %> </th>
+         </tr>
+        <% end %>
+        </tbody>
+    </table>
+    <a href = "/review/new">
+        <button class="btn btn-default" type="submit">새 리뷰작성</button>
+    </a>
+</div>

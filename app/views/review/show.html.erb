@@ -1,0 +1,21 @@
+<div class="container" style="margin-top : 70px; font-size: 23px;">
+    <table class="table" style="width:100%">
+      <tr>
+        <th> 글쓴이 </th>
+        <th> 장소 </th>
+        <th> 일자 </th>
+        <th> 총 금액 </th>
+        <th> 총 참석자 </th>
+      </tr>
+      <hr>
+      <tr>
+        <td><%= @review.worktitleReview %></td>
+        <td><%= @review.placeReview %></td>
+        <td><%= @review.dayReview %></td>
+        <td><%= @review.evalReview %></td>
+      </tr>
+    </table>
+        <a href="/review/index">
+            <button class="btn btn-default" type="submit">뒤로 가기</button>
+        </a>
+</div>

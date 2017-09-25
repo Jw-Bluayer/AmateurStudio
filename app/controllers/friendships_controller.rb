@@ -1,5 +1,5 @@
 class FriendshipsController < ApplicationController
-
+	before_action :set_user
 
 	def show
 		@users = User.all
@@ -34,4 +34,9 @@ class FriendshipsController < ApplicationController
 	  redirect_to root_url
 	end
 
+private
+
+  def set_user
+    @user = User.find(params[:user_id]) if params[:user_id].present?
+  end
 end

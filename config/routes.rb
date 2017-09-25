@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'home#index'
 
   resources :posts do
     resources :comments, only: [:create, :destroy]
@@ -12,13 +13,17 @@ Rails.application.routes.draw do
   #다른 유저의 마이페이지
   get 'users/:id' => 'user#showothers'
 
+  get 'review/index'
+  get 'review/new'
+  get 'review/show/:id' => "review#show"
+  post 'review/add'
+
+
   resources :posts
 
   resources :profiles
 
   resources :mypage
-
-  root 'home#index'
 
   resources :user
 

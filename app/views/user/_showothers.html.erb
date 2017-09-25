@@ -36,7 +36,7 @@
               <%= @user.introduction %>
             </p>
 
-           
+
        </div>
       </div>
     </div>
@@ -48,7 +48,16 @@
  <div class = "user_ul">
     <ul>
       <li class="mypagenav-item">
-        <a class="mypagenav-link" href="/friendships/show" lang = "en">친구추가</a>
+        <% current_user.friends.each do |request| %>
+          <% unless request == @user %>
+            <% unless @user == current_user || @user == current_user && @user.pending == true %>
+              <%= link_to "친구추가", friendships_path(friend_id: @user), method: :post %>
+            <% end %>
+          <% end %>
+      <% end %>
+      </li>
+      <li class="mypagenav-item">
+        <%= link_to "리뷰작성", "/review/new" %>
       </li>
     </ul>
   </div>
@@ -75,7 +84,7 @@
 
              <td><%= post.title %></td>
               <td><%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %></td>
-             
+
             </tr>
           <% end %>
 

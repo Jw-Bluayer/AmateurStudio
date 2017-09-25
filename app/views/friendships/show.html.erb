@@ -50,7 +50,9 @@
 <ul class="list-group">
 <% current_user.friends.each do |request| %>
 <li class="list-group-item">
-    <%= request.name %>
+  <a title="Full Name" href="/user/<%= request.id%>">
+	   <%= request.name %>
+	</a>
 </li>
 <% end %>
 </ul>
