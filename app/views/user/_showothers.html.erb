@@ -46,21 +46,15 @@
 <br>
 
  <div class = "user_ul">
-    <ul>
-      <li class="mypagenav-item">
-        <% current_user.friends.each do |request| %>
-          <% unless request == @user %>
-            <% unless @user == current_user || @user == current_user && @user.pending == true %>
-              <%= link_to "친구추가", friendships_path(friend_id: @user), method: :post %>
-            <% end %>
-          <% end %>
-      <% end %>
-      </li>
-      <li class="mypagenav-item">
-        <%= link_to "리뷰작성", "/review/new" %>
-      </li>
-    </ul>
-  </div>
+      <ul>
+        <li class="mypagenav-item">
+          <%= link_to "친구추가", friendships_path(friend_id: @user), method: :post %>
+       </li>
+       <li class="mypagenav-item">
+         <%= link_to "리뷰작성", "/index" %>
+        </li>
+      </ul>
+    </div>
 
    <!-- 해당 유저의 포스트들 -->
     <h1><center>Posts</center></h1>

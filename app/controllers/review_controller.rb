@@ -1,25 +1,41 @@
 class ReviewController < ApplicationController
-  def index
-    @reviews = Review.all
-  end
-
   def new
   end
 
-  def show
-    @review = Review.find(params[:id])
+  def create
+    newReview = Review.new
+    newReview.title = params[:title]
+    newReview.content = params[:content]
+    newReview.save
+
+    redirect_to "/show/#{newReview.id}"
   end
 
-  def add
-    review = Review.new
-    review.worktitleReview = params[:worktitle]
-    review.placeReview = params[:place]
-    review.dayReview = params[:day]
-    review.satisForworkReview = params[:satisForwork]
-    review.satisForworkerReview = params[:satisForworker]
-    review.evalReview = params[:eval]
-    review.save
+  def destroy
+    destroyReview = Review.find(params[:id])
+    destroyReview.destroy
 
-    redirect_to "/review/index"
+    redirect_to '/'
+  end
+
+  def index
+    @listReview = Review.all
+  end
+
+  def show
+    @showReview = Review.find(params[:id])
+  end
+
+  def edit
+    @editReview = Review.find(params[:id])
+  end
+
+  def update
+    updateReview = Review.find(params[:id])
+    updateReview.title = params[:title]
+    updateReview.content = params[:content]
+    updateReview.save
+
+    redirect_to "/show/#{updateReview.id}"
   end
 end

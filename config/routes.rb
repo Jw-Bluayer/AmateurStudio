@@ -13,10 +13,13 @@ Rails.application.routes.draw do
   #다른 유저의 마이페이지
   get 'users/:id' => 'user#showothers'
 
-  get 'review/index'
-  get 'review/new'
-  get 'review/show/:id' => "review#show"
-  post 'review/add'
+  get 'new'         => 'review#new'       # 글 작성 페이지
+  post 'create'     => 'review#create'    # 글 작성
+  get 'destroy/:id' => 'review#destroy'   # 글 삭제
+  get 'index'       => 'review#index'     # 모든 글 보기
+  get 'show/:id'    => 'review#show'      # 특정 글 보기
+  get 'edit/:id'    => 'review#edit'      # 글 편집 페이지
+  post 'update'     => 'review#update'    # 글 편집
 
 
   resources :posts

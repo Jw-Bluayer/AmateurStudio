@@ -1,0 +1,20 @@
+<h1>글편집 페이지</h1>
+<p>제목과 내용을 다시 입력하여 글을 편집합니다.</p>
+<hr>
+<%= form_tag('/update') do %>
+    <input type="hidden" value="<%= @editReview.id %>" name="id">
+    <div class="form-group row">
+        <input type="text" class="form-control col-md-12" id="frmTitle" name="title" placeholder="제목을 입력해 주세요." value="<%= @editReview.title %>" />
+    </div>
+    <div class="form-group row">
+        <textarea class="form-control col-md-12" id="frmContent" name="content" placeholder="내용을 입력해 주세요." rows="15"><%= @editReview.content %></textarea>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-2">
+            <a href="/" class="btn btn-default">목록으로 돌아가기</a>
+        </div>
+        <div class="col-md-2 col-md-offset-8">
+            <input type="submit" value="글 수정하기" id="frmSubmit" class="form-control btn btn-success">
+        </div>
+    </div>
+<% end %>

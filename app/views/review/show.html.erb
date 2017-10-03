@@ -1,21 +1,17 @@
-<div class="container" style="margin-top : 70px; font-size: 23px;">
-    <table class="table" style="width:100%">
-      <tr>
-        <th> 글쓴이 </th>
-        <th> 장소 </th>
-        <th> 일자 </th>
-        <th> 총 금액 </th>
-        <th> 총 참석자 </th>
-      </tr>
-      <hr>
-      <tr>
-        <td><%= @review.worktitleReview %></td>
-        <td><%= @review.placeReview %></td>
-        <td><%= @review.dayReview %></td>
-        <td><%= @review.evalReview %></td>
-      </tr>
-    </table>
-        <a href="/review/index">
-            <button class="btn btn-default" type="submit">뒤로 가기</button>
-        </a>
+<h1>글보기 페이지</h1>
+<p>제목과 내용을 보여줍니다.</p>
+<hr>
+
+<div class="form-group row">
+    <input type="text" class="form-control col-md-12" id="frmTitle" name="title" placeholder="제목을 입력해 주세요." value="<%= @showReview.title %>" readonly />
 </div>
+<div class="form-group row">
+    <textarea class="form-control col-md-12" id="frmContent" name="content" placeholder="내용을 입력해 주세요." rows="15" readonly><%= @showReview.content %></textarea>
+</div>
+<div class="form-group row">
+    <div class="col-md-2">
+        <a href="/" class="btn btn-default">목록으로 돌아가기</a>
+    </div>
+</div>
+
+<hr>

@@ -1,26 +1,31 @@
-<div class="container">
-    <table class="table">
-       <thead style="font-size:30px; align="center"">
-            <tr>
-                 <th> <strong>번호</strong> </th>
-                 <th> <strong>작성자</strong> </th>
-                 <th> <strong>장소</strong> </th>
-                 <th> <strong>일자</strong> </th>
-            </tr>
+<h1>메인 화면 페이지</h1>
+<p>글 목록을 보여줍니다.</p>
+<hr>
+<% if @listReview.empty? %>
+    <h3 class="text-center">글이 없습니다!</h3>
+<% else %>
+    <table class="table table-hover table-striped">
+        <thead>
+            <th width="100px">글 번호</th>
+            <th>글 제목</th>
+            <th width="60px"></th>
         </thead>
-
-       <% @reviews.each do |r| %>
-       <tbody>
-        <tr>
-             <th> <%= r.id %></th>
-             <th> <%= r.worktitleReview%> </th>
-             <th> <a href= "<%= "/review/show/" + r.id.to_s%>"><%= r.placeReview %></a> </th>
-             <th> <%= r.dayReview %> </th>
-         </tr>
-        <% end %>
+        <tbody>
+            <% @listReview.each do |oneReview| %>
+                <tr>
+                    <td><%= oneReview.id %></td>
+                    <td>
+                        <%= link_to oneReview.title, "show/#{oneReview.id}" %>
+                    </td>
+                    <td>
+                        <%= link_to 'Edit', "/edit/#{oneReview.id}" %>
+                        <%= link_to 'Destroy', "/destroy/#{oneReview.id}" %>
+                    </td>
+                </tr>
+            <% end %>
         </tbody>
+        <tfoot>
+
+        </tfoot>
     </table>
-    <a href = "/review/new">
-        <button class="btn btn-default" type="submit">새 리뷰작성</button>
-    </a>
-</div>
+<% end %>

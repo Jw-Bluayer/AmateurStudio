@@ -1,27 +1,19 @@
-<div class="container" style="margin-top:70px">
+<h1>글쓰기 페이지</h1>
+<p>제목과 내용을 입력하여 글을 작성합니다.</p>
 <hr>
-   <%= form_tag('/review/add', multipart: true) do %>
-      <div class="form-group">
-        <label for="exampleInputName2"> 작업주제 </label>
-        <textarea name="worktitle" class="form-control" rows = "3" placeholder="주제"></textarea>
-      </div>
-
-       <div class="form-group">
-        <label for="exampleInputName2"> 작업장소 </label>
-        <textarea name="place" class="form-control"  placeholder="작업 장소"></textarea>
-      </div>
-
-       <div class="form-group">
-        <label for="exampleInputName2"> 작업일자 </label>
-        <input type="date" name="day" class="form-control" id="exampleInputName2" placeholder="2017년 1월 1일"></textarea>
-      </div>
-
-       <div class="form-group">
-        <label for="exampleInputName2"> 개인평가 </label>
-        <textarea name="eval" class="form-control" placeholder="평가해주세요"></textarea>
-      </div>
-
-      <button type="submit" class="btn btn-default"> 저 장 </button>
-    <% end %>
-</div>
-<hr>
+<%= form_tag('/create') do %>
+    <div class="form-group row">
+        <input type="text" class="form-control col-md-12" id="frmTitle" name="title" placeholder="제목을 입력해 주세요." />
+    </div>
+    <div class="form-group row">
+        <textarea class="form-control col-md-12" id="frmContent" name="content" placeholder="내용을 입력해 주세요." rows="20"></textarea>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-2">
+            <a href="/" class="btn btn-default">목록으로 돌아가기</a>
+        </div>
+        <div class="col-md-2 col-md-offset-8">
+            <input type="submit" value="글 작성하기" id="frmSubmit" class="form-control btn btn-success">
+        </div>
+    </div>
+<% end %>
