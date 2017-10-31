@@ -8,13 +8,15 @@ class Ability
 
       if user.nil? 
         can :read, :all
-      elsif user.has_role? :admin
-        can :manage, :all
       else 
-        can :read,  :all
-        can :create,  :all
-        can :update,  :all, user_id: user.id
-        can :destroy, :all, user_id: user.id
+        can :manage, :all
+      # elsif user.has_role? :admin
+      #  can :manage, :all
+      # else 
+      #  can :read,  :all
+      #  can :create,  :all
+      #  can :update,  :all, user_id: user.id
+      #  can :destroy, :all, user_id: user.id
      
       end
     #
