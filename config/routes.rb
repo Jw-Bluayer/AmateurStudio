@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'conversations/show'
 
+  #해시태그
+  get '/posts/hashtag/:name', to:'posts#hashtags'
+
+
   #다른 유저의 마이페이지
   get 'users/:id' => 'user#showothers'
 
