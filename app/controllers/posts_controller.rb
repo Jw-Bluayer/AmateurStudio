@@ -16,6 +16,15 @@ class PostsController < ApplicationController
   end
 
 
+  #hashtags
+  def hashtags
+    tag = Tag.find_by(name: params[:name])
+    @posts = tag.posts
+  end
+
+
+
+
   # GET /posts/new
   def new
     @post = @user.present? ? @user.posts.new : Post.new
