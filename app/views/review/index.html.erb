@@ -15,11 +15,11 @@
                 <tr>
                     <td><%= oneReview.id %></td>
                     <td>
-                        <%= link_to oneReview.title, "show/#{oneReview.id}" %>
+                        <%= link_to oneReview.title, "/reviews/#{oneReview.id}" %>
                     </td>
                     <td>
-                        <%= link_to 'Edit', "/edit/#{oneReview.id}" %>
-                        <%= link_to 'Destroy', "/destroy/#{oneReview.id}" %>
+                        <%= link_to 'Edit', "/reviews/#{oneReview.id}/edit" %>
+                        <%= link_to 'Destroy', "/reviews/#{oneReview.id}" %>
                     </td>
                 </tr>
             <% end %>
@@ -29,3 +29,5 @@
         </tfoot>
     </table>
 <% end %>
+
+<%= link_to '리뷰 작성', "/reviews/new" %>

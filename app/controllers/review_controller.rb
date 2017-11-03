@@ -8,14 +8,14 @@ class ReviewController < ApplicationController
     newReview.content = params[:content]
     newReview.save
 
-    redirect_to "/show/#{newReview.id}"
+    redirect_to "/reviews/#{newReview.id}"
   end
 
   def destroy
     destroyReview = Review.find(params[:id])
     destroyReview.destroy
 
-    redirect_to '/'
+    redirect_to '/reviews'
   end
 
   def index
@@ -36,6 +36,6 @@ class ReviewController < ApplicationController
     updateReview.content = params[:content]
     updateReview.save
 
-    redirect_to "/show/#{updateReview.id}"
+    redirect_to "/reviews/#{updateReview.id}"
   end
 end
