@@ -2,34 +2,7 @@
 <html>
 <head>
   <title>AmateurStudio</title>
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="stylesheet/application.css" media="screen" />
-
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-
-<style type="text/css">
-body {
-    background-color: white;
-}
-
-.navbar {
-  border-bottom: 1px solid #000000;
-  width: 75%;
-}
-
-  .navbar {
-   border-bottom: 1px solid #000000;
-   width: 75%;
- }
-
-</style>
-</head>
+  
 <!-- navbar -->
  <header>
    <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
@@ -70,28 +43,6 @@ body {
         <%= yield %>
   </div>
   <img src="../assets/topButton.png" onclick="topFunction()" id="myBtn" title="Go to top">
-
-  <script>
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-            document.getElementById("myBtn").style.display = "block";
-        } else {
-            document.getElementById("myBtn").style.display = "none";
-        }
-    }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        document.body.scrollTop = 0; // For Chrome, Safari and Opera
-        document.documentElement.scrollTop = 0; // For IE and Firefox
-    }
-
-</script>
-
-
 
 </body>
 
