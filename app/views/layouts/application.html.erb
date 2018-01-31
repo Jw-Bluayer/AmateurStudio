@@ -1,55 +1,71 @@
+
 <!DOCTYPE html>
-<html>
-<head>
-  <title>AmateurStudio</title>
-  
-<!-- navbar -->
- <header>
-   <nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top">
-    <a class="navbar-brand" href="/home/index"><!-- <img src ="../assets/logo.png" style = "width:60%; margin-top:10px; margin-left:10px;"> --> AmateurStudio</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup navbarText">
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav mr-auto">
-          <% if user_signed_in? %>
-            <li class="nav-item top-nav">
-             <span class="navbar-text">
-               <a href="/user/<%= current_user.id%>"><%= current_user.email %></a>
-            </span></li>
-            <li class="nav-item">
-            <span class="navbar-text top-nav">
-               <%= link_to "Sign out", destroy_user_session_path, method: :delete, data: { confirm: "Are you sure?" } %>
-            </span></li>
-          <% else %>
-              <li class="nav-item">
-              <span class="navbar-text top-nav">
-                <%= link_to "Sign in", new_user_session_path %>
-              </span></li>
-              <li class="nav-item">
-              <span class="navbar-text top-nav">
-                <%= link_to "Sign up", new_user_registration_path %>
-              </span></li>
-          <% end %>
-        </ul>
-      </div>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+
+    <title>AmateurStudio</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  </head>
+
+  <body>
+
+
+ <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="/home/index">AmateurStudio</a>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+        <% if user_signed_in? %>
+            <a class="nav-item nav-link" href="/user/<%= current_user.id%>"><%= current_user.email %></a>
+            <span class="nav-item nav-link">
+               <%= link_to "Sign out", destroy_user_session_path , method: :delete, data: { confirm: "Are you sure?" } %>
+            </span>
+        <% else %>
+            <span class="nav-item nav-link">
+              <%= link_to "Sign in", new_user_session_path %>
+            </span>
+
+            <span class="nav-item nav-link">
+              <%= link_to "Sign up", new_user_registration_path %>
+            </span>
+        <% end %>
     </div>
-  </nav>
-</header>
-
-<body>
-  <div class="container">
-        <%= yield %>
   </div>
-  <img src="../assets/topButton.png" onclick="topFunction()" id="myBtn" title="Go to top">
+</nav>
 
-</body>
 
-<footer>
- <center>
-    <a href="/"><img src="../assets/footer/서비스소개off.png" onmouseover="this.src='../assets/footer/서비스소개on.png'" onmouseout="this.src='../assets/footer/서비스소개off.png'"></a>
-    <a href="/"><img src="../assets/footer/이용약관off.png" onmouseover="this.src='../assets/footer/이용약관on.png'" onmouseout="this.src='../assets/footer/이용약관off.png'"></a>
-</center>
-</footer>
+
+
+          <div class="container">
+                <%= yield %>
+          </div>
+
+
+
+
+
+
+  </body>
 </html>
