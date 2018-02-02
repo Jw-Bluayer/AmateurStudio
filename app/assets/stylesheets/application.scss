@@ -15,7 +15,7 @@
  */
 
 
- .flex {
+.flex {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -85,60 +85,4 @@
   .name {
     display: block;
   }
-}
-
-.image {
-  border-bottom: 1px solid #eeefef;
-  border-top: 1px solid #eeefef;
-}
-
-.caption {
-  padding: 24px 24px;
-  font-size: 15px;
-  line-height: 18px;
-
-}
-
-.form-wrapper {
-  width: 100%;
-  margin: 20px auto;
-  background-color: #fff;
-  padding: 40px;
-  border: 1px solid #eeefef;
-  border-radius: 3px;
-}
-
-.edit-links {
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-.right {
-text-align: right;
-}
-
-.navbar-brand{
-  font-size: 150%;
-  margin-left: 50px;
-  font-weight: 600;
-}
-
-#navbarText{
-  float: right;
-}
-
-a {
-  color: #bcb5b9;
-}
-
-a:hover{
-  color: #7e57c2;
-  text-decoration: none;
-}
-
- @media only screen and (max-width : 768px) {
-   .navbar navbar-expand-lg navbar-light bg-light {
-       display: inline-block;
-       float: left;
-    }
 }
