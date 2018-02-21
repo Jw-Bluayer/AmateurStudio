@@ -40,7 +40,7 @@
         <% if user_signed_in? %>
             <a class="nav-item nav-link" href="/user/<%= current_user.id%>"><%= current_user.email %></a>
             <span class="nav-item nav-link">
-               <%= link_to "Sign out", destroy_user_session_path , method: :delete, data: { confirm: "Are you sure?" } %>
+               <%= button_to "Sign out", destroy_user_session_path , method: :delete, data: { confirm: "Are you sure?" } %>
             </span>
         <% else %>
             <span class="nav-item nav-link">
