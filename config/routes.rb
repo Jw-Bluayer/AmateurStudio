@@ -8,17 +8,19 @@ Rails.application.routes.draw do
   #해시태그
   get '/posts/hashtag/:name', to:'posts#hashtags'
 
+  #리뷰
+
+  get '/user/:user_id/reviews/new' => 'reviews#new'
+  get '/user/:user_id/reviews/create' => 'reviews#create'
+  get '/user/:user_id/reivews/destroy/:review_id' => 'reviews#destroy'
 
   #다른 유저의 마이페이지
   get 'users/:id' => 'user#showothers'
 
   post 'post/:post_id/like' => 'likes#like_toggle'
-  
+
   resources :posts
 
-  resources :profiles
-
-  resources :mypage
 
   root 'home#index'
 
@@ -40,5 +42,5 @@ Rails.application.routes.draw do
 
     resources :messages, only: [:create]
   end
-  
+
 end

@@ -36,7 +36,7 @@
               <%= @user.introduction %>
             </p>
 
-           
+
        </div>
       </div>
     </div>
@@ -53,6 +53,20 @@
     </ul>
   </div>
 
+
+
+  <hr />
+  <% @reviews.each do |review| %>
+      <p>리뷰 번호 : <%= review.id %></p>
+      <p>리뷰 제목 : <%= review.title %></p>
+      <p>리뷰 내용 : <%= review.content %></p>
+      <a href='/user/<%= @user.id %>/reviews/destroy/<%= review.id %>'
+      data-method='get'
+      data-confirm='댓글을 삭제합니다.'>
+          [댓글삭제]
+      </a>
+      <hr />
+  <% end %>
    <!-- 해당 유저의 포스트들 -->
     <h1><center>Posts</center></h1>
 
@@ -75,7 +89,7 @@
 
              <td><%= post.title %></td>
               <td><%= link_to 'Show', (@user.present? ? [post.user, post] : post), class: 'btn btn-default' %></td>
-             
+
             </tr>
           <% end %>
 

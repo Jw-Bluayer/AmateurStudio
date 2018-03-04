@@ -61,11 +61,32 @@
       <li class="mypagenav-item">
         <a class="mypagenav-link" href="/conversations/show" lang = "en">Chats</a>
       </li>
+      <li class="mypagenav-item">
+        <a class="mypagenav-link" href="/user/<%= @user.id %>/reviews/new" lang = "en">리뷰작성</a>
+      </li>
     </ul>
   </div>
 </ul>
 </nav>
 </div>
+
+<hr />
+
+<% @reviews.each do |review| %>
+    <p>리뷰 번호 : <%= review.id %></p>
+    <p>리뷰 제목 : <%= review.title %></p>
+    <p>리뷰 내용 : <%= review.content %></p>
+    <a href='/user/<%= @user.id %>/reviews/destroy/<%= review.id %>'
+    data-method='get'
+    data-confirm='댓글을 삭제합니다.'>
+        [댓글삭제]
+    </a>
+    <hr />
+<% end %>
+
+
+
+
     <!-- 해당 유저의 포스트들 -->
 <% @post.each do |post| %>
   <div class="col-4 col-lg-auto">

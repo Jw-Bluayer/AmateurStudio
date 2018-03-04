@@ -15,8 +15,9 @@ class User < ApplicationRecord
 	has_many :requested_friendships, -> { where(friendships: { accepted: false}) }, through: :received_friendships, source: :user
 	has_many :likes
 	has_many :liked_posts, through: :likes, source: :post
-    has_many :posts 
-    has_many :comments
+  has_many :posts
+  has_many :comments
+  has_many :reviews
 
 	def friends
 	  active_friends | received_friends
@@ -30,7 +31,7 @@ class User < ApplicationRecord
   		Like.find_by(user_id: self.id, post_id: post.id).present?
 	end
 
-	
+
 
   mount_uploader :image, S3Uploader
 
